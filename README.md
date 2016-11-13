@@ -1,5 +1,7 @@
 # CareAxiom-HRMS
-Kindly follow the mentioned (rough) steps to setup project. You may choose any operating environment, i.e `Windows` or `Linux`. Though Linux will be preferred. Note that these steps are specific to `Ubuntu`. Other operating systems may differ slightly.
+Kindly follow the mentioned (rough and incomplete) steps to setup project. You may choose any operating environment, i.e `Windows` or `Linux`. Though Linux will be preferred. Note that these steps are specific to `Ubuntu`. Other operating systems may differ slightly.
+
+/* Kindly ask me if there is some confusion regarding these steps. Since they are not detailed, therefore there is a good chance of making mistake if you are setting up Git and project for the first time */
 
 1) Download and install `github`
 
@@ -12,3 +14,5 @@ Kindly follow the mentioned (rough) steps to setup project. You may choose any o
 5) Clone the repository to your local directory (https://help.github.com/articles/cloning-a-repository/).
 
 6) Open terminal and navigate to your project's root directory. Type `npm install`.
+
+7) Make a new branch through `git checkout -b <new-branch>` and start committing to it.
