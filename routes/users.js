@@ -6,4 +6,11 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/abc', function(req, res, next) {
+  // console.log(req.app.locals.rootDirectory);
+  // res.send(req.cookies);
+  res.send(req.session);
+  // res.send(req.signedCookies);
+});
+
 module.exports = router;
