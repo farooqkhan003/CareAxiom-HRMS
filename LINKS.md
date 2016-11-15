@@ -20,3 +20,6 @@ https://coderwall.com/p/cl7zyg/api-calls-and-infinite-scroll-with-angularjs
 https://coggle.it/diagram/Vz9LvW8byvN0I38x
 https://www.terlici.com/2014/08/25/best-practices-express-structure.html
 https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.zi80p1ytg
+
+###### Git Knowledge
+https://help.github.com/articles/basic-writing-and-formatting-syntax/
