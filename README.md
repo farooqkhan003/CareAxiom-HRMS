@@ -15,4 +15,11 @@ Kindly follow the mentioned (rough and incomplete) steps to setup project. You m
 
 6) Open terminal and navigate to your project's root directory. Type `npm install`.
 
-7) Make a new branch through `git checkout -b <new-branch>` and start committing to it.
+7) Make a new branch through `git checkout -b <new-branch>` and start committing to it. Other commands that you will require are:
+  ```
+  git status
+  git diff file-or-directory-name
+  git add file-or-directory-name
+  git commit -m "Reason for commit or change"
+  git push origin branch-name
+  ```
