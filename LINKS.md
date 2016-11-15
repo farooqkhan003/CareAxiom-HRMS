@@ -1,14 +1,14 @@
-* Kindly add more links to this file, under relevant heading, if you find them useful *
+*Kindly add more links to this file, under relevant heading, if you find them useful*
 
 ###### Angular (Front End):
 http://www.w3schools.com/angular/default.asp
 http://learnangular2.com/
 http://www.angular2.com/
 
-###### Back End
+###### Nodejs (Back End):
 https://www.youtube.com/watch?v=-u-j7uqU7sI&index=1&list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_
 
-###### Database ORM (Sequelize):
+###### Sequelize (Database ORM):
 https://www.youtube.com/watch?v=qsDvJrGMSUY&list=PL5ze0DjYv5DYBDfl0vF_VRxEu8JdTIHlR
 
 ###### Common Links:
