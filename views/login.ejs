@@ -57,7 +57,55 @@
   </div>
 
   <!-- write you all code here -->
-  <div id="main">
+  <div id="main" class="text-center">
+      <div class="container-fluid form-box">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 login-background">
+            <form action="index.php" method="post">
+              <h2><b>Login Panel</b></h2>
+              <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                <label id="response-login" class="btn-block text-center alert alert-danger">Please try again!</label>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" id="username" required="required" name="username" class="form-control" placeholder="uesrname">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end of row -->
+              <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="password" id="password" required="required" title="Please enter passwrod" name="password" class="form-control" placeholder="Password">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end of row -->
+              
+              <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                  <div class="form-group">
+                    <input type="submit" id="login" name="submit" class="btn form-control btn-success bold" value="Log in">
+                  </div>
+                </div>
+              </div> <!-- end of row -->
+              <!-- <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                  <div class="pull-righte">
+                    <p><a href="#">Forget your email or password?</a></p>
+                  </div>
+                </div>
+              </div>  --><!-- end of row -->
+
+            </form> <!-- end of form -->
+          </div> <!-- end of col-sm-8 col-sm-offset-2 login-background -->
+        </div> <!-- end of row -->
+        
+      </div>
+    </div>
   </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
