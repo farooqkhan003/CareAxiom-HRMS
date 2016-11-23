@@ -5,8 +5,8 @@
  */
 
 var app = require('../app');
-// var debug = require('debug')('express-sequelize');
-var debug = require('debug')('careaxiomhrms:server');
+var debug = require('debug')('express-sequelize');
+// var debug = require('debug')('careaxiomhrms:server');
 var http = require('http');
 var models = require('../app/models');
 
@@ -23,7 +23,10 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-models.sequelize.sync().then(function() {
+models.sequelize.sync({
+  force: true,
+  logging: true
+}).then(function() {
   /**
    * Listen on provided port, on all network interfaces.
    */

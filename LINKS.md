@@ -10,6 +10,7 @@ https://www.youtube.com/watch?v=-u-j7uqU7sI&index=1&list=PL6gx4Cwl9DGBMdkKFn3Has
 
 ###### Sequelize (Database ORM)
 https://www.youtube.com/watch?v=qsDvJrGMSUY&list=PL5ze0DjYv5DYBDfl0vF_VRxEu8JdTIHlR <br />
+http://docs.sequelizejs.com/en/1.7.0/articles/express/ <br />
 
 ###### Common Links
 https://scotch.io/ <br />
