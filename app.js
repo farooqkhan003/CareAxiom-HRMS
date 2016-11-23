@@ -31,7 +31,8 @@ app.use(session( {
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', authenticateUser.authenticateUser, index);
+// Routes
+app.use('/', authenticateUser, index);
 app.use('/users', users);
 
 
