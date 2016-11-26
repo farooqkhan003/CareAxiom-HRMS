@@ -6,8 +6,10 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  global.db.User.findById(id, function(err, user) {
-    done(err, user);
+  global.db.User.findById(id).then(function (user) {
+    done(null, user);
+  }).catch(function (err) {
+    done(err, null);
   });
 });
 
@@ -16,19 +18,15 @@ passport.use('local.signIn', new LocalStrategy({}, function(username, password, 
       where: { username : username }
     }).then(function (user) {
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, { message: 'Incorrect username' });
       }
-
-      user.validPassword(password, user).then(function (user) {
-        // console.log('\n\n\nabababa', user);
-        return done(null, user);
-      }).catch(function (err) {
-        console.log('\n\n\nerror');
-        return done(err, false, { message: 'Incorrect password.' });
-      });
+      if (!user.validPassword(password, user.password)) {
+        return done(null, false, { message: 'Incorrect password' });
+      }
+      return done(null, user);
     }).catch(function (err) {
       if (err) {
-        return done(err, false, { message: "Couldn't find user" });
+        return done(err);
       }
     });
 }));

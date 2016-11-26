@@ -1,3 +1,4 @@
+var flash = require('connect-flash');
 var express = require('express');
 var passport = require('./config/passport');
 var path = require('path');
@@ -29,18 +30,27 @@ app.use(session({
   saveUninitialized: true,
   resave: false
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', index);
-app.post('/login', passport.authenticate('local.signIn', {
-  successRedirect: '/employee',
-  failureRedirect: '/'
-}));
-// app.use('/home', authentication.isAuthenticated, home.homepage);
-app.use('/employee', employee);
+app.use('/employee', authentication.isAuthenticated, employee);
+app.post('/login', function(req, res, next) {
+  passport.authenticate('local.signIn', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) {
+      req.flash('message', info.message);
+      return res.redirect('/');
+    }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/employee');
+    });
+  })(req, res, next);
+});
 app.get('/logout', authentication.destroySession);
 
 

@@ -52,22 +52,13 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     hooks: {
-      beforeCreate: function (user, done) {
-        bcrypt.hash(user.password, 8, null, function (err, pswdHash) {
-          if(err) return next(err);
-          user.password = pswdHash;
-          return done(null, user);
-        });
+      beforeCreate: function (user) {
+        var pswdHash = bcrypt.hashSync(user.password, 8);
+        user.password = pswdHash;
+        return user;
       }
     },
     classMethods: {
-      addUserTemp: function (userName, email, password) {
-        return global.db.User.create({
-          username: userName,
-          email: email,
-          password: password
-        });
-      },
       addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary) {
         var _this = {};
         return sequelize.transaction(function (t) {
@@ -118,22 +109,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     instanceMethods: {
-      validPassword: function(password, user) {
-        return new Promise(function (resolve, reject) {
-          bcrypt.hash(password, 8, null, function (err, pswdHash) {
-            if(err) return reject(err);
-
-            bcrypt.compare(password, pswdHash, function (err, isMatch) {
-              if (err) return reject(err);
-              if (isMatch) {
-                return resolve(user);
-              }
-              else {
-                return reject(err);
-              }
-            });
-          });
-        });
+      validPassword: function(password, userPasswordHash) {
+        return bcrypt.compareSync(password, userPasswordHash);
       }
     }
   });
