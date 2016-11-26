@@ -54,6 +54,52 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     classMethods: {
+      addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary) {
+        return sequelize.transaction(function (t) {
+          return this.create({
+            username: userName,
+            email: email,
+            password: password // Check whether hook is called or not
+          }, {
+            transaction : t
+          }).bind(this).then(function (user) {
+            this.user = user;
+            return global.db.UserInfo.create({
+              first_name: firstName,
+              last_name: lastName,
+              designation: designation,
+              contact_no: phone,
+              address: address,
+              yearly_increment: null,
+              join_date: null,
+              available_leaves: null,
+              user_id: user.id
+            }, {
+              transaction: t
+            }).then(function (userInfo) {
+              return global.db.SalaryHistory.create({
+                user_id: this.user.id,
+                salary_amount: salary,
+                currency: null,
+                status: 'pending',
+                month: new Date().getMonth(),
+                year: new Date().getYear(),
+                salary_bump: null,
+                bonus: null
+              });
+            });
+          });
+        }).then(function (result) {
+          console.log('result: \n', result);
+          // Transaction has been committed
+          // result is whatever the result of the promise chain returned to the transaction callback
+        }).catch(function (err) {
+          console.log('error: \n', err);
+          // Transaction has been rolled back
+          // err is whatever rejected the promise chain returned to the transaction callback
+        });
+      },
+
       validPassword: function(password, pswdHash, done, user) {
         bcrypt.compare(password, pswdHash, function (err, isMatch) {
           if(err) console.log(err);

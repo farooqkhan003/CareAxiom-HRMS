@@ -11,10 +11,10 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use('local.signIn', new LocalStrategy({}, function(req, username, password, done) {
-  console.log('\n\n\n\n\nI come here');
-  global.db.User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
+passport.use('local.signIn', new LocalStrategy({}, function(username, password, done) {
+    global.db.User.findOne({
+      where: { username : username }
+    }).then(function (user) {
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
@@ -24,8 +24,9 @@ passport.use('local.signIn', new LocalStrategy({}, function(req, username, passw
         return done(null, false, { message: 'Incorrect password.' });
       }
       return done(null, user);
+    }).catch(function (err) {
+      if (err) { return done(err); }
     });
-  }
-));
+}));
 
 module.exports = passport;

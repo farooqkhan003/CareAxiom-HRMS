@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     yearly_increment: {
       type: Sequelize.FLOAT,
-      defaultValue: 0,
+      defaultValue: 10,
       allowNull: false,
       validate: {
         min: 0
@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     available_leaves: {
       type: Sequelize.FLOAT,
-      defaultValue: 0,
+      defaultValue: 30,
       allowNull: false
     },
     user_id: {

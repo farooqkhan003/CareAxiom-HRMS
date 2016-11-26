@@ -4,7 +4,7 @@
 http://www.w3schools.com/angular/default.asp <br />
 http://learnangular2.com/ <br />
 http://www.angular2.com/ <br />
-https://www.youtube.com/watch?v=PFP0oXNNveg <br />
+[MEAN App From Scratch - MongoDB, Express, Angular 2 & NodeJS - Brad Traversy](https://www.youtube.com/watch?v=PFP0oXNNveg) <br />
 
 ###### Nodejs (Back End)
 [Node.js Tutorial for Beginners - thenewboston](https://www.youtube.com/watch?v=-u-j7uqU7sI&index=1&list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_) <br />

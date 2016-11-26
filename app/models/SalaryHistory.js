@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     currency: {
       type: Sequelize.ENUM("PKR", "USD"),
+      defaultValue: 'PKR',
       allowNull: false
     },
     status: {
