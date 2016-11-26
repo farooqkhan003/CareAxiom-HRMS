@@ -29,4 +29,6 @@ fs.readdirSync(__dirname).filter(function(file) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+global.db = db;
+
 module.exports = db;
