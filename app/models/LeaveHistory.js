@@ -2,7 +2,8 @@
 
 var Sequelize = require('sequelize');
 
-var UserInfo = require('./UserInfo');
+var UserInfo = sequelize.import(__dirname + "UserInfo");
+// var UserInfo = require('./UserInfo');
 
 module.exports = function(sequelize, DataTypes) {
   var LeaveHistory = sequelize.define('LeaveHistory', {

@@ -45,8 +45,40 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     hooks: {
-      afterValidate: function (user) {
-        user.password = bcrypt.hashSync(user.password, 8);
+      beforeCreate: function (user, done) {
+        bcrypt.hash(user.password, 8, null, function (err, hash) {
+          if(err) return next(err);
+          user.password = hash;
+          return done(null, user);
+        });
+      }
+    },
+    classMethods: {
+      validPassword: function(password, passwd, done, user) {
+        bcrypt.compare(password, passwd, function (err, isMatch) {
+          if(err) console.log(err);
+          if(isMatch) {
+            return done(null, user);
+          }
+          else {
+            return done(err, null);
+          }
+        });
+
+        // Task.findAll().on('success', function(allTasks) {
+        //   var chainer = new Sequelize.Utils.QueryChainer;
+        //   allTasks.forEach(function(task) {
+        //     chainer.add(task.updateAttributes({ importance: newImportance }))
+        //   });
+        //   chainer.run().on('success', function() {
+        //     callback && callback()
+        //   })
+        // });
+      }
+    },
+    instanceMethods: {
+      passedDeadline: function() {
+        return (this.deadline < new Date())
       }
     }
   });

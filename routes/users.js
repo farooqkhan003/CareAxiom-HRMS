@@ -6,7 +6,21 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/abc', function(req, res, next) {
+router.get('/abc/:abc', function(req, res, next) {
+  // req.params.abc
+
+  // models.User.findAll({
+  //   include: [ models.Task ]
+  // }).then(function(users) {
+  //   res.render('index', {
+  //     title: 'Sequelize: Express Example',
+  //     users: users
+  //   });
+  // });
+  //
+
+  // res.json(abc);
+
   // console.log(req.app.locals.rootDirectory);
   // res.send(req.cookies);
   res.send(req.session);
