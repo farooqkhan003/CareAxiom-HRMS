@@ -1,9 +1,4 @@
-"use strict";
-
 var Sequelize = require('sequelize');
-
-var UserInfo = sequelize.import(__dirname + "UserInfo");
-// var UserInfo = require('./UserInfo');
 
 module.exports = function(sequelize, DataTypes) {
   var LeaveHistory = sequelize.define('LeaveHistory', {
@@ -38,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
 
     hooks: {
       beforeCreate: function (userLeave) {
-        return UserInfo.find({
+        return global.db.UserInfo.find({
           where: {
             user_id: userLeave.user_id
           }
