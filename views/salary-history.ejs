@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Directory View</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/side-navigation.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link href="DataTables/media/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span> <span
+            class="icon-bar"></span> <span class="icon-bar"></span> <span
+            class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><b><img src="photos/Careaxiom.png"></b></a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse"
+        id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a  href="#" data-toggle="modal" data-target="#login-modal">New User</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#L-WFH-modal">Apply for Leave/WFH</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#"><button class="btn btn-block btn-info">Profile </button></a>
+    <a href="#"><button class="btn btn-block btn-success">Calender</button></a>
+    <a href="#"><button class="btn btn-block btn-default">Employee</button></a>
+    <a href="#"><button class="btn btn-block btn-default btn-yellow">Company</button></a>
+  </div>
+
+  <!-- write you all code here -->
+  <div id="main" class="text-center">
+    <h2>Salary History</h2> <br>
+        <div class="table-responsive">
+          <table class="table display table-bordered" id="table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Bump</th>
+                <th>Bonus #</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Farooq Khan</td>
+                <td>CEO :p</td>
+                <td>email@emailc.com</td>
+                <td>123123123</td>
+                <td>240 shad bagh</td>
+              </tr>
+
+              <tr>
+                <td>Farooq Khan</td>
+                <td>CEO :p</td>
+                <td>email@emailc.com</td>
+                <td>123123123</td>
+                <td>240 shad bagh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+<br><br>
+<!-- Add New User modal -->
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+          <h1>Add New Employee</h1><br>
+          <div id="form">
+            <div class="col-md-6">
+              <label>First Name</label>
+              <input type="text" class="form-control" id="" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <label>Last Name</label>
+              <input type="text" class="form-control" id="" placeholder="Last Name">
+            </div>
+            <label>Email</label>
+            <input type="email" class="form-control" id="" placeholder="Email">
+            <label>Phone #</label>
+            <input type="number" class="form-control" id="" placeholder="Phone #">
+            <label>Designation</label>
+            <select class="form-control" id="">
+              <option>Select Designation</option>
+              <option></option>
+              <option></option>
+            </select>
+            <br>
+            <button class="btn btn-block btn-success" >Add User</button>
+            
+          </div> <!-- end of form -->
+          
+      <div class="login-help pull-right">
+        <a href="login.ejs">Login</a> <!-- <a href="#">Forgot Password</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of add new user modal -->
+<!-- Add New Apply for leave/WFH -->
+
+<div class="modal fade" id="L-WFH-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container extra-large">
+          <h1>Apply For Leave/EFH</h1><br>
+          <div id="form">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Apply For</label>
+                <select class="form-control" id="">
+                  <option>Leave</option>
+                  <option>Work from Home</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label>Available Leaves</label>
+                <input disabled class="form-control" value="9" >
+              </div>
+            </div>  <!-- end of row -->
+            <label>Date</label>
+            <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; border-radius: 2px;">
+              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+              <span></span> <b class="caret"></b>
+            </div>
+            <br>
+            <label>Description</label>
+            <textarea class="form-control" placeholder="Reason..."></textarea>
+            <br>
+            <button class="btn btn-block btn-success" >Apply</button>
+            
+          </div> <!-- end of form -->
+          <br>
+    </div>
+  </div>
+</div>
+
+<!-- End of Apply for leave/WFH -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <script type="text/javascript" src="DataTables/media/js/jquery.dataTables.min.js"></script>
+  </body>
+  <script type="text/javascript">
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  </script>
+  <script type="text/javascript">
+    $(function() {
+
+    var start = moment().subtract(0, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
+           'Next 7 Days': [moment().add(1, 'days'), moment().add(7, 'days')]
+        }
+    }, cb);
+
+    cb(start, end);
+    
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#table').DataTable();
+    });
+</script>
+</html>
