@@ -1,4 +1,7 @@
 /*General styling*/
+body{
+	overflow-x: hidden; 
+}
 #main{
 	margin-top: 70px;
 }

@@ -8,10 +8,18 @@
     <title>Template</title>
 
     <!-- Bootstrap -->
+<<<<<<< HEAD
     <link  rel="stylesheet" href="css/bootstrap.min.css">
     <link  rel="stylesheet" href="css/styles.css">
     <link  rel="stylesheet" href="css/side-navigation.css">
     <link  rel="stylesheet" href="css/popup.css">
+=======
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/side-navigation.css">
+    <link rel="stylesheet" href="css/popup.css">
+>>>>>>> 2b089bb1b6b95ac28919e12b3021edee2d317f34
     <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -60,7 +68,85 @@
 
   <!-- write you all code here -->
   <div id="main">
+
   </div>
+
+<!-- Add New User modal -->
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+          <h1>Add New Employee</h1><br>
+          <div id="form">
+            <div class="col-md-6">
+              <label>First Name</label>
+              <input type="text" class="form-control" id="" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <label>Last Name</label>
+              <input type="text" class="form-control" id="" placeholder="Last Name">
+            </div>
+            <label>Email</label>
+            <input type="email" class="form-control" id="" placeholder="Email">
+            <label>Phone #</label>
+            <input type="number" class="form-control" id="" placeholder="Phone #">
+            <label>Designation</label>
+            <select class="form-control" id="">
+              <option>Select Designation</option>
+              <option></option>
+              <option></option>
+            </select>
+            <br>
+            <button class="btn btn-block btn-success" >Add User</button>
+            
+          </div> <!-- end of form -->
+          
+      <div class="login-help pull-right">
+        <a href="login.ejs">Login</a> <!-- <a href="#">Forgot Password</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of add new user modal -->
+<!-- Add New Apply for leave/WFH -->
+
+<div class="modal fade" id="L-WFH-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container extra-large">
+          <h1>Apply For Leave/EFH</h1><br>
+          <div id="form">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Apply For</label>
+                <select class="form-control" id="">
+                  <option>Leave</option>
+                  <option>Work from Home</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label>Available Leaves</label>
+                <input disabled class="form-control" value="9" >
+              </div>
+            </div>  <!-- end of row -->
+            <label>Date</label>
+            <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; border-radius: 2px;">
+              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+              <span></span> <b class="caret"></b>
+            </div>
+            <br>
+            <label>Description</label>
+            <textarea class="form-control" placeholder="Reason..."></textarea>
+            <br>
+            <button class="btn btn-block btn-success" >Apply</button>
+            
+          </div> <!-- end of form -->
+          <br>
+    </div>
+  </div>
+</div>
+
+<!-- End of Apply for leave/WFH -->
 
 
 
