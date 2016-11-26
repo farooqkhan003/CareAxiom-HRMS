@@ -23,7 +23,15 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: false,
     // deletedAt: 'deleted_at',
     // paranoid: true,
-    freezeTableName: true
+    freezeTableName: true,
+
+    classMethods: {
+      abc: function() {
+
+
+      }
+    }
+
   });
 
   return Department;
