@@ -1,18 +1,20 @@
 var express = require('express');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
-var app = express();
-app.locals.rootDirectory = __dirname;
+// app.locals.rootDirectory = __dirname;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var authenticateUser = require(path.join(app.locals.rootDirectory, 'app/middlewares/authenticateUser'));
+var authentication = require('./app/middlewares/authentication');
 
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,18 +24,27 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session( {
-  secret: 'CareaxiomHRMS',
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'SpeaktaVeryGoodEngrish',
   saveUninitialized: true,
   resave: false
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // Routes
-app.use('/', authenticateUser, index);
+app.use('/', index);
+app.post('/login', passport.authenticate('localSignIn', {
+  successRedirect: '/home',
+  failureRedirect: '/'
+}));
+// app.use('/home', authentication.isAuthenticated, home.homepage);
 app.use('/users', users);
+app.get('/logout', authentication.destroySession);
 
 
 // catch 404 and forward to error handler
