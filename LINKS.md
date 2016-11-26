@@ -7,23 +7,23 @@ http://www.angular2.com/ <br />
 https://www.youtube.com/watch?v=PFP0oXNNveg <br />
 
 ###### Nodejs (Back End)
-https://www.youtube.com/watch?v=-u-j7uqU7sI&index=1&list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_ <br />
-https://www.youtube.com/watch?v=56TizEw2LgI&list=PL55RiY5tL51rajp7Xr_zk-fCFtzdlGKUp&index=1 <br />
+[Node.js Tutorial for Beginners - thenewboston](https://www.youtube.com/watch?v=-u-j7uqU7sI&index=1&list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_) <br />
+[Shopping Cart - Mindspace](https://www.youtube.com/watch?v=56TizEw2LgI&list=PL55RiY5tL51rajp7Xr_zk-fCFtzdlGKUp&index=1) <br />
 
 ###### Sequelize (Database ORM)
-https://www.youtube.com/watch?v=qsDvJrGMSUY&list=PL5ze0DjYv5DYBDfl0vF_VRxEu8JdTIHlR <br />
-http://docs.sequelizejs.com/en/1.7.0/articles/express/ <br />
+[Sequelize - Code Cast](https://www.youtube.com/watch?v=qsDvJrGMSUY&list=PL5ze0DjYv5DYBDfl0vF_VRxEu8JdTIHlR) <br />
+[Sequelize Usage with Express.js](http://docs.sequelizejs.com/en/1.7.0/articles/express/) <br />
 [Sequelize Querying](http://docs.sequelizejs.com/en/latest/docs/querying/) <br />
-[Sequelize Querying](http://docs.sequelizejs.com/en/latest/docs/models-usage/) <br />
-[Sequelize Querying](http://docs.sequelizejs.com/en/latest/docs/instances/) <br />
+[Sequelize Read](http://docs.sequelizejs.com/en/latest/docs/models-usage/) <br />
+[Sequelize Create, Update](http://docs.sequelizejs.com/en/latest/docs/instances/) <br />
 
 ###### Passport.js (Authentication)
-https://www.youtube.com/watch?v=vDdJBpOhTNo <br />
-http://passportjs.org/docs/overview <br />
+[Node.js + Passport.js + Sequelize.js - nVisium](https://www.youtube.com/watch?v=vDdJBpOhTNo) <br />
+[Passport.js Documentation](http://passportjs.org/docs/overview) <br />
 
 ###### Common Links
 https://scotch.io/ <br />
-https://www.youtube.com/watch?v=wz-ZkLB7ozo <br />
+[CRUD app with AngularJs, Node js, express js, Bootstrap, EJS, MySQL - Shiva Adhikari](https://www.youtube.com/watch?v=wz-ZkLB7ozo) <br />
 
 ###### Misc
 https://coggle.it/diagram/Vz9LvW8byvN0I38x <br />
@@ -35,4 +35,4 @@ https://help.github.com/articles/basic-writing-and-formatting-syntax/ <br />
 Git - Knowledge.pdf (in root directory)
 
 ###### Sample Express and Sequelize app
-https://github.com/sequelize/express-example
+[sequelize/express-example app](https://github.com/sequelize/express-example) <br />
