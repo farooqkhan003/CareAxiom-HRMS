@@ -1,11 +1,40 @@
 /*General styling*/
+body{
+	overflow-x: hidden; 
+}
 #main{
 	margin-top: 70px;
 }
+.btn-default {
+  color: #333;
+  background-color: rgba(227,227,227,0.91);
+  border-color: #ccc;
+}
+.btn-default:hover {
+  color: white;
+  background-color: rgba(202,202,202,0.93);
+  border-color: #ccc;
+}
 .btn{
     border-radius: 2px;
+    color: white; 
+}
+.btn-success{
+	background-color: #66bb44;
+}
+.btn-yellow{
+	background-color: #fb0;
+	border-color: #fb0; 
+}
+.btn-yellow:hover {
+  color: white;
+  background-color: rgba(255,187,0,0.87);
+  border-color: #fb0;
 }
 
+.form-control{
+	border-radius: 2px;
+}
 /*Nav bar styling*/
 .navbar {
 	-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
@@ -34,4 +63,10 @@
 	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
 	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+}
+
+/*leave/work from home popup*/
+#L-WFH-modal .row{
+	margin-left: 0px;
+	margin-right: 0px;
 }
