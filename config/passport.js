@@ -18,9 +18,12 @@ passport.use('local.signIn', new LocalStrategy({}, function(username, password, 
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
+
       user.validPassword(password, user).then(function (user) {
+        // console.log('\n\n\nabababa', user);
         return done(null, user);
       }).catch(function (err) {
+        console.log('\n\n\nerror');
         return done(err, false, { message: 'Incorrect password.' });
       });
     }).catch(function (err) {

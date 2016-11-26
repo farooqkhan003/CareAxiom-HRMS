@@ -10,7 +10,7 @@ var session = require('express-session');
 // app.locals.rootDirectory = __dirname;
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var employee = require('./routes/employee');
 var authentication = require('./app/middlewares/authentication');
 
 var app = express();
@@ -36,11 +36,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', index);
 app.post('/login', passport.authenticate('local.signIn', {
-  successRedirect: '/home',
+  successRedirect: '/employee',
   failureRedirect: '/'
 }));
 // app.use('/home', authentication.isAuthenticated, home.homepage);
-app.use('/users', users);
+app.use('/employee', employee);
 app.get('/logout', authentication.destroySession);
 
 
