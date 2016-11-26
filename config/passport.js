@@ -18,14 +18,15 @@ passport.use('local.signIn', new LocalStrategy({}, function(username, password, 
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      // pswdHash = user ? user.password : '';
-      // isMatch = db.User.validPassword(password, pswdHash, done, user);
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
+      user.validPassword(password, user).then(function (user) {
+        return done(null, user);
+      }).catch(function (err) {
+        return done(err, false, { message: 'Incorrect password.' });
+      });
     }).catch(function (err) {
-      if (err) { return done(err); }
+      if (err) {
+        return done(err, false, { message: "Couldn't find user" });
+      }
     });
 }));
 

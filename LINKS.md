@@ -13,6 +13,7 @@ http://www.angular2.com/ <br />
 ###### Sequelize (Database ORM)
 [Sequelize - Code Cast](https://www.youtube.com/watch?v=qsDvJrGMSUY&list=PL5ze0DjYv5DYBDfl0vF_VRxEu8JdTIHlR) <br />
 [Sequelize Usage with Express.js](http://docs.sequelizejs.com/en/1.7.0/articles/express/) <br />
+[Sequelize Model Functions](http://docs.sequelizejs.com/en/latest/api/model/) <br />
 [Sequelize Querying](http://docs.sequelizejs.com/en/latest/docs/querying/) <br />
 [Sequelize Read](http://docs.sequelizejs.com/en/latest/docs/models-usage/) <br />
 [Sequelize Create, Update](http://docs.sequelizejs.com/en/latest/docs/instances/) <br />

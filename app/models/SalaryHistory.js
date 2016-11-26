@@ -31,7 +31,10 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: new Date().getMonth(),
       allowNull: false,
       validate: {
-        len: [0, 11]
+        len: {
+          args: [0, 11],
+          msg: "Months should be between 0 to 11"
+        }
       }
     },
     year: {
