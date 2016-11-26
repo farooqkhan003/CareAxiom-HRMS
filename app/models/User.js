@@ -54,8 +54,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     classMethods: {
-      validPassword: function(password, passwd, done, user) {
-        bcrypt.compare(password, passwd, function (err, isMatch) {
+      validPassword: function(password, pswdHash, done, user) {
+        bcrypt.compare(password, pswdHash, function (err, isMatch) {
           if(err) console.log(err);
           if(isMatch) {
             return done(null, user);

@@ -1,6 +1,5 @@
 var express = require('express');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var passport = require('./config/passport');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -38,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', index);
-app.post('/login', passport.authenticate('localSignIn', {
+app.post('/login', passport.authenticate('local.signIn', {
   successRedirect: '/home',
   failureRedirect: '/'
 }));

@@ -1,6 +1,3 @@
-// req.user.id -> ID of the person logged in
-// req.params.user_id -> ID of person in url
-
 exports.isAuthenticated = function (req, res, next) {
   if(req.isAuthenticated()) {
     next();
