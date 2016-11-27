@@ -60,7 +60,25 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     timestamps: false,
-    freezeTableName: true
+    freezeTableName: true,
+
+
+    classMethods: {
+
+      getSalaryDetail: function() {
+
+
+      },
+
+      setSalary:function(){
+
+      },
+
+      updateSalary:function(){
+
+      },
+
+    }
   });
 
   return SalaryHistory;

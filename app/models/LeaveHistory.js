@@ -51,7 +51,21 @@ module.exports = function(sequelize, DataTypes) {
           throw err;
         });
       }
+    },
+
+    classMethods: {
+      getLeavesCount: function() {
+
+
+      },
+
+      setLeave:function(){
+
+      },
+
+
     }
+
   });
 
   return LeaveHistory;
