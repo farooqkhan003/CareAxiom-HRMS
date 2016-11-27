@@ -4,6 +4,15 @@ var Sequelize = require('sequelize');
 
 module.exports = function(sequelize, DataTypes) {
   var UserInfo = sequelize.define('UserInfo', {
+    user_id: {
+      type: Sequelize.INTEGER,
+      unique: true,
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
+    },
     first_name: {
       type: Sequelize.STRING,
       allowNull: false
@@ -43,37 +52,46 @@ module.exports = function(sequelize, DataTypes) {
       type: Sequelize.FLOAT,
       defaultValue: 30,
       allowNull: false
-    },
-    user_id: {
-      type: Sequelize.INTEGER,
-      unique: true,
-      allowNull: false,
-      references: {
-        model: 'User',
-        key: 'id'
-      }
     }
   }, {
     timestamps: false,
     freezeTableName: true,
 
-
-
     classMethods: {
-
-      getUserInfo: function() {
-
-
+      getUserInfoByUserId: function(userId) {
+        return global.db.findOne({
+          where: { user_id : userId }
+        });
       },
-
-      addUserInfo:function(){
-
+      getAllUsersInfo: function (userIds) {
+        return global.db.findAll({
+          where: {
+            user_id: { $in : userIds }
+          }
+        });
       },
-
-      updateUserInfo:function(){
-
+      updateUserInfoByUserId: function(userId, firstName, lastName, phone, address) {
+        return global.db.UserInfo.update({
+          first_name: firstName,
+          last_name: lastName,
+          contact_no: phone,
+          address: address
+        }, {
+          where: { user_id : userId }
+        });
       },
-
+      updateUserInfoByAdmin: function (userId, firstName, lastName, designation, phone, address, yearlyIncrement, availableLeaves) {
+        return global.db.UserInfo.update({
+          first_name: firstName,
+          last_name: lastName,
+          contact_no: phone,
+          address: address,
+          yearly_increment: yearlyIncrement,
+          available_leaves: availableLeaves
+        }, {
+          where: { user_id : userId }
+        });
+      }
     }
   });
 

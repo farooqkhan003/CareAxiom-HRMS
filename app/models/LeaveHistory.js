@@ -52,18 +52,13 @@ module.exports = function(sequelize, DataTypes) {
         });
       }
     },
-
     classMethods: {
       getLeavesCount: function() {
 
-
       },
+      setLeave: function() {
 
-      setLeave:function(){
-
-      },
-
-
+      }
     }
 
   });

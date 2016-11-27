@@ -42,34 +42,40 @@ module.exports = function(sequelize, DataTypes) {
         }
         // is: ["^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{5,}$", 'i']
       }
+    },
+    is_archived: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: 0,
+      allowNull: false
     }
   }, {
     timestamps: true,
-    createdAt: 'created_at',
     updatedAt: false,
-    // deletedAt: 'deleted_at',
-    // paranoid: true,
+    paranoid: true,
+    underscored: true,
     freezeTableName: true,
 
     hooks: {
       beforeCreate: function (user) {
-        var pswdHash = bcrypt.hashSync(user.password, 8);
-        user.password = pswdHash;
-        return user;
+        user.password = bcrypt.hashSync(user.password, 8);
+      },
+      afterDestroy: function (user) {
+        // console.log('NIGGGAS');
+        // user.is_archived = 1;
       }
     },
     classMethods: {
       addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary) {
-        var _this = {};
+        var _user = {};
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,
             email: email,
-            password: password // Check whether hook is called or not
+            password: password
           }, {
             transaction : t
           }).then(function (user) {
-            _this.user = user;
+            _user = user;
             return global.db.UserInfo.create({
               first_name: firstName,
               last_name: lastName,
@@ -84,7 +90,7 @@ module.exports = function(sequelize, DataTypes) {
               transaction: t
             }).then(function (userInfo) {
               return global.db.SalaryHistory.create({
-                user_id: _this.user.dataValues.id,
+                user_id: _user.dataValues.id,
                 salary_amount: salary,
                 // currency: null,
                 status: 'pending',
@@ -105,6 +111,54 @@ module.exports = function(sequelize, DataTypes) {
           console.log('error: \n', err);
           // Transaction has been rolled back
           // err is whatever rejected the promise chain returned to the transaction callback
+        });
+      },
+      getUserByUserName: function (userName) {
+        return global.db.User.findOne({
+          where: {
+            username: userName,
+            is_archived: false
+          }
+        });
+      },
+      getAllUsers: function () {
+        return global.db.User.findAll({
+          where: { is_archived : false }
+        });
+      },
+      updatePasswordByUserName: function (userName, oldPassword, newPassword) {
+        return global.db.User.findOne({
+          where: {
+            username: userName,
+            is_archived: false
+          }
+        }).then(function(user) {
+          if(bcrypt.compareSync(oldPassword, user.password)) {
+            var pswdHash = bcrypt.hashSync(newPassword, 8);
+            return user.updateAttributes({
+              password: pswdHash
+            });
+          }
+          else {
+            throw new Error('Old and new passwords do not match');
+          }
+        });
+      },
+      deleteUserByUserName: function(userName) {
+        return global.db.User.destroy({
+          where: {
+            username: userName,
+            is_archived: false
+          },
+          individualHooks: true
+        });
+      },
+      reviveUserByUserName: function (userName) {
+        return global.db.User.update({
+          is_archived: false,
+          deleted_at: null
+        }, {
+          where: { username : userName }
         });
       }
     },

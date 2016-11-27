@@ -23,21 +23,17 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     timestamps: false,
     freezeTableName: true,
-    classMethods: {
 
+    classMethods: {
       getSupervisor: function() {
 
+      },
+      setSalary:function() {
 
       },
+      updateSalary:function() {
 
-      setSalary:function(){
-
-      },
-
-      updateSalary:function(){
-
-      },
-
+      }
     }
   });
 
