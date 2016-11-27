@@ -25,14 +25,29 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     classMethods: {
-      getSupervisor: function() {
-
+      addUserSupervisor: function (userId, supervisorId) {
+        return global.db.UserSupervisor.create({
+          user_id: userId,
+          supervisor_id: supervisorId
+        });
       },
-      setSalary:function() {
-
+      updateUserSupervisor: function (userId, oldSupervisorId, newSupervisorId) {
+        return global.db.UserSupervisor.update({
+          supervisor_id: newSupervisorId
+        }, {
+          where: {
+            user_id: userId,
+            supervisor_id: oldSupervisorId
+          }
+        });
       },
-      updateSalary:function() {
-
+      deleteUserSupervisor: function (userId, supervisorId) {
+        return global.db.UserSupervisor.destroy({
+          where: {
+            user_id: userId,
+            supervisor_id: supervisorId
+          }
+        });
       }
     }
   });

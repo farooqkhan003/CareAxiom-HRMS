@@ -39,28 +39,38 @@ module.exports = function(sequelize, DataTypes) {
       },
       getDepartmentByName: function (departmentName) {
         return global.db.Department.findOne({
-          where: { department_name : departmentName }
+          where: {
+            department_name: departmentName,
+            is_archived: false
+          }
         });
       },
       getAllDepartments: function () {
-        return global.db.Department.findAll({});
+        return global.db.Department.findAll({
+          where: { is_archived : false }
+        });
       },
       updateDepartmentByName: function (oldDepartmentName, newDepartmentName, description) {
         return global.db.Department.update({
           department_name: newDepartmentName,
           description: description
         }, {
-          where: { department_name : oldDepartmentName }
+          where: {
+            department_name: oldDepartmentName,
+            is_archived: false
+          }
         });
       },
       deleteDepartmentByName: function (departmentName) {
         return global.db.Department.destroy({
-          where: { department_name : departmentName },
+          where: {
+            department_name: departmentName,
+            is_archived: false
+          },
           individualHooks: true
         });
       }
     }
-
   });
 
   return Department;

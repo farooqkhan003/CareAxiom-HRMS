@@ -35,6 +35,31 @@ module.exports = function(sequelize, DataTypes) {
     address: {
       type: Sequelize.STRING
     },
+    salary_amount: {
+      type: Sequelize.FLOAT,
+      allowNull: false
+    },
+    currency: {
+      type: Sequelize.ENUM("PKR", "USD"),
+      defaultValue: 'PKR',
+      allowNull: false
+    },
+    salary_bump: {
+      type: Sequelize.FLOAT,
+      defaultValue: 0,
+      allowNull: false,
+      validate: {
+        min: 0
+      }
+    },
+    bonus: {
+      type: Sequelize.FLOAT,
+      defaultValue: 0,
+      allowNull: false,
+      validate: {
+        min: 0
+      }
+    },
     yearly_increment: {
       type: Sequelize.FLOAT,
       defaultValue: 10,
@@ -59,12 +84,13 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
       getUserInfoByUserId: function(userId) {
-        return global.db.findOne({
+        return global.db.UserInfo.findOne({
           where: { user_id : userId }
         });
       },
-      getAllUsersInfo: function (userIds) {
-        return global.db.findAll({
+      getAllUsersInfoByUserIds: function (userIds) {
+        // Project and LIMIT - getAllSalary, getAllLeaves, viewOrganizationalStructure, viewDirectory
+        return global.db.UserInfo.findAll({
           where: {
             user_id: { $in : userIds }
           }
@@ -80,12 +106,14 @@ module.exports = function(sequelize, DataTypes) {
           where: { user_id : userId }
         });
       },
-      updateUserInfoByAdmin: function (userId, firstName, lastName, designation, phone, address, yearlyIncrement, availableLeaves) {
+      updateUserInfoByAdmin: function (userId, firstName, lastName, designation, phone, address, salary,
+                                       currency, salaryBump, bonus, yearlyIncrement, availableLeaves) {
         return global.db.UserInfo.update({
           first_name: firstName,
           last_name: lastName,
           contact_no: phone,
           address: address,
+          salary_amount: salary,
           yearly_increment: yearlyIncrement,
           available_leaves: availableLeaves
         }, {

@@ -62,22 +62,48 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     freezeTableName: true,
 
-
     classMethods: {
-
-      getSalaryDetail: function() {
-
-
+      addSalary: function(userId, salary, currency, status, month, year, salaryBump, bonus) {
+        return global.db.SalaryHistory.findOrCreate({
+          where: {
+            user_id: userId,
+            month: month,
+            year: year
+          },
+          defaults: {
+            salary_amount: salary,
+            currency: currency,
+            status: status,
+            salary_bump: salaryBump,
+            bonus: bonus
+          }
+        });
       },
-
-      setSalary:function(){
-
+      getSalaryHistoryByUserId: function(userId) {
+        return global.db.SalaryHistory.findAll({
+          where: { user_id : userId }
+        });
       },
-
-      updateSalary:function(){
-
+      getSalaryByUserIdMonthYear: function (userId, month, year) {
+        return global.db.SalaryHistory.findOne({
+          where: {
+            user_id: userId,
+            month: month,
+            year: year
+          }
+        });
       },
-
+      updateSalaryStatusByUserIdMonthYear: function(userId, status, month, year) {
+        return global.db.SalaryHistory.update({
+          status: status
+        }, {
+          where: {
+            user_id : userId,
+            month: month,
+            year: year
+          }
+        });
+      }
     }
   });
 

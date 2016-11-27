@@ -65,7 +65,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     classMethods: {
-      addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary) {
+      addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary,
+                         currency, status, month, year, salaryBump, bonus) {
         var _user = {};
         return sequelize.transaction(function (t) {
           return global.db.User.create({
@@ -82,6 +83,10 @@ module.exports = function(sequelize, DataTypes) {
               designation: designation,
               contact_no: phone,
               address: address,
+              salary_amount: salary,
+              currency: currency,
+              salary_bump: salaryBump,
+              bonus: bonus,
               // yearly_increment: null,
               // join_date: null,
               // available_leaves: null,
@@ -89,15 +94,19 @@ module.exports = function(sequelize, DataTypes) {
             }, {
               transaction: t
             }).then(function (userInfo) {
-              return global.db.SalaryHistory.create({
-                user_id: _user.dataValues.id,
-                salary_amount: salary,
-                // currency: null,
-                status: 'pending',
-                month: new Date().getMonth(),
-                year: new Date().getYear()
-                // salary_bump: null,
-                // bonus: null
+              return global.db.SalaryHistory.findOrCreate({
+                where: {
+                  user_id: _user.dataValues.id,
+                  month: month,
+                  year: year
+                },
+                defaults: {
+                  salary_amount: salary,
+                  currency: currency,
+                  status: status,
+                  salary_bump: salaryBump,
+                  bonus: bonus
+                }
               }, {
                 transaction: t
               });

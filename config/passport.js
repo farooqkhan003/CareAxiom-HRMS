@@ -6,7 +6,12 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  global.db.User.findById(id).then(function (user) {
+  global.db.User.findOne({
+    where: {
+      user_id: id,
+      is_archived: false
+    }
+  }).then(function (user) {
     done(null, user);
   }).catch(function (err) {
     done(err, null);
@@ -15,7 +20,10 @@ passport.deserializeUser(function(id, done) {
 
 passport.use('local.signIn', new LocalStrategy({}, function(username, password, done) {
     global.db.User.findOne({
-      where: { username : username }
+      where: {
+        username: username,
+        is_archived: false
+      }
     }).then(function (user) {
       if (!user) {
         return done(null, false, { message: 'Incorrect username' });
