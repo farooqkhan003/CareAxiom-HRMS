@@ -8,7 +8,7 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(id, done) {
   global.db.User.findOne({
     where: {
-      user_id: id,
+      id: id,
       is_archived: false
     }
   }).then(function (user) {

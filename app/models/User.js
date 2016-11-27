@@ -67,7 +67,6 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary,
                          currency, status, month, year, salaryBump, bonus) {
-        var _user = {};
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,
@@ -76,7 +75,6 @@ module.exports = function(sequelize, DataTypes) {
           }, {
             transaction : t
           }).then(function (user) {
-            _user = user;
             return global.db.UserInfo.create({
               first_name: firstName,
               last_name: lastName,
@@ -93,33 +91,8 @@ module.exports = function(sequelize, DataTypes) {
               user_id: user.id
             }, {
               transaction: t
-            }).then(function (userInfo) {
-              return global.db.SalaryHistory.findOrCreate({
-                where: {
-                  user_id: _user.dataValues.id,
-                  month: month,
-                  year: year
-                },
-                defaults: {
-                  salary_amount: salary,
-                  currency: currency,
-                  status: status,
-                  salary_bump: salaryBump,
-                  bonus: bonus
-                }
-              }, {
-                transaction: t
-              });
             });
           });
-        }).then(function (result) {
-          console.log('result: \n', result);
-          // Transaction has been committed
-          // result is whatever the result of the promise chain returned to the transaction callback
-        }).catch(function (err) {
-          console.log('error: \n', err);
-          // Transaction has been rolled back
-          // err is whatever rejected the promise chain returned to the transaction callback
         });
       },
       getUserByUserName: function (userName) {
