@@ -189,7 +189,7 @@
                     <div class="container fom-main">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h2 class="register">Edit Your Profile</h2>
+                                <h2 class="register">Edit Profile</h2>
                             </div><!--col-sm-12 close-->
 
                         </div><!--row close-->
@@ -221,7 +221,7 @@
 
                                     <!-- Text input-->
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">E-Mail</label>
+                                        <label class="col-md-10 control-label">Email</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
                                                 <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
@@ -231,12 +231,18 @@
 
 
                                     <!-- Text input-->
-
+                                    <!-- only for admin -->
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Phone #</label>
+                                        <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+                                                <select class="form-control" id="" name="designation">
+                                                  <option>Select Designation</option>
+                                                  <option>Software Developer</option>
+                                                  <option>Senior Software Developer</option>
+                                                  <option>Quality Assurance Engineer</option>
+                                                  <option>Human Resource Manager</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -244,35 +250,30 @@
                                     <!-- Text input-->
 
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Address</label>
+                                        <label class="col-md-10 control-label">Contact</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <textarea class="form-control" name="address" placeholder="Project Description"></textarea>
+                                                <input type="text" class="form-control" name="contact" placeholder="Contact"/>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Project Description</label>
+                                        <label class="col-md-10 control-label">Salary</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+                                                <input class="form-control" name="salary" placeholder="Salary"/>
                                             </div>
                                         </div>
                                     </div>
 
 
-
+                                    <!-- only for admin -->
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Industry</label>
-                                        <div class="col-md-12 selectContainer">
+                                        <label class="col-md-10 control-label">Upcomming Bump</label>
+                                        <div class="col-md-12 selectContainere">
                                             <div class="input-group">
-                                                <select name="state" class="form-control selectpicker" >
-                                                    <option value=" " >Industry</option>
-                                                    <option>Industry</option>
-                                                    <option>Industry</option>
-                                                    <option>Industry</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="bump" id="bump" placeholder=" Upcomming Bump">
                                             </div>
                                         </div>
                                     </div>
@@ -281,125 +282,18 @@
                                     <!-- Select Basic -->
 
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Qualification</label>
-                                        <div class="col-md-12 selectContainer">
+                                        <label class="col-md-10 control-label">Upcomming Bonus</label>
+                                        <div class="col-md-12 selectContainere">
                                             <div class="input-group">
-                                                <select name="state" class="form-control selectpicker" >
-                                                    <option value=" " >your Qualification</option>
-                                                    <option>M.A.</option>
-                                                    <option>B.A.</option>
-                                                    <option >B.Ed</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="bonus" name="bonus" placeholder="Upcomming Bonus" >
                                             </div>
                                         </div>
                                     </div>
 
 
-
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Expertise areas</label>
-                                        <div class="col-md-12 selectContainer">
-                                            <div class="input-group">
-                                                <select name="state" class="form-control selectpicker" >
-                                                    <option value=" " >Expertise areas</option>
-                                                    <option>Expertise areas1</option>
-                                                    <option>Expertise areas1</option>
-                                                    <option>Expertise areas1</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Experience</label>
-                                        <div class="col-md-12 selectContainer">
-                                            <div class="input-group">
-                                                <select name="state" class="form-control selectpicker" >
-                                                    <option value=" " >your Experience</option>
-                                                    <option>1 year</option>
-                                                    <option>2 years</option>
-                                                    <option >3 years</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Salary expected</label>
-                                        <div class="col-md-12 selectContainer">
-                                            <div class="input-group">
-                                                <select name="state" class="form-control selectpicker" >
-                                                    <option value=" " >your Salary expectation</option>
-                                                    <option>50 thousand</option>
-                                                    <option>30thousand</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Preferred Location</label>
-                                        <div class="col-md-12 selectContainer">
-                                            <div class="input-group">
-                                                <select name="state" class="form-control selectpicker" >
-                                                    <option value=" " >your Preferred Location</option>
-                                                    <option>Chandigarh</option>
-                                                    <option>Chandigarh</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--<div class="form-group col-md-12">
-                                      <label class="col-md-10 control-label">Project Description</label>
-                                        <div class="col-md-10 inputGroupContainer">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil hint_icon"></i></span>
-                                              <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
-                                      </div>
-                                      </div>
-                                    </div>-->
-
-
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Choose Password</label>
-                                        <div class="col-md-12 inputGroupContainer">
-                                            <div class="input-group">
-                                                <input name="password1" placeholder="Choose Password" class="form-control"  type="password">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Confirm Password</label>
-                                        <div class="col-md-12 inputGroupContainer">
-                                            <div class="input-group">
-                                                <input name="password2" placeholder="Confirm Password" class="form-control"  type="password">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <!-- radio checks -->
-                                    <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Gender</label>
-                                        <div class="col-md-6">
-                                            <div class="radio col-md-2">
-                                                <label>
-                                                    <input type="radio" name="hosting" value="yes" /> Male
-                                                </label>
-                                            </div>
-                                            <div class="radio col-md-2">
-                                                <label>
-                                                    <input type="radio" name="hosting" value="no" /> Female
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <!-- upload profile picture -->
+                                    <!--
                                     <div class="col-md-12 text-left">
                                         <div class="uplod-picture">
 <span class="btn btn-default uplod-file">
@@ -411,7 +305,8 @@
                                             <span class="btn btn-default uplod-file">
     Upload Video <input type="file" />
 </span>
-                                        </div><!--uplod-picture close-->
+                                        </div> -->
+                                        <!--uplod-picture close-->
                                     </div><!--col-md-12 close-->
                                     <!-- Button -->
                                     <div class="form-group col-md-10">

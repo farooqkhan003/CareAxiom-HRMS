@@ -110,3 +110,7 @@ background-color:#ffffff !important; transition:all ease 0.5s;border-top: 0px so
 
 }
 
+
+#change .form-control{
+	width: 87%;
+}
