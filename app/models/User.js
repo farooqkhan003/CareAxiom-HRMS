@@ -62,15 +62,38 @@ module.exports = function(sequelize, DataTypes) {
     hooks: {
       beforeCreate: function (user) {
         user.password = bcrypt.hashSync(user.password, 8);
-      },
-      afterDestroy: function (user) {
+      }
+      // afterDestroy: function (user) {
         // console.log('NIGGGAS');
         // user.is_archived = 1;
-      }
+      // }
     },
     classMethods: {
-      addUser: function (userName, email, password, rank, firstName, lastName, designation, phone, address, salary,
-                         currency, status, month, year, salaryBump, bonus) {
+      addUserQuick: function (userName, email, password, rank, firstName, lastName, designation, phone) {
+        return sequelize.transaction(function (t) {
+          return global.db.User.create({
+            username: userName,
+            email: email,
+            password: password,
+            rank: rank
+          }, {
+            transaction : t
+          }).then(function (user) {
+            return global.db.UserInfo.create({
+              first_name: firstName,
+              last_name: lastName,
+              designation: designation,
+              contact_no: phone,
+              salary_amount: 0,
+              user_id: user.id
+            }, {
+              transaction: t
+            });
+          });
+        });
+      },
+      addUserComplete: function (userName, email, password, rank, firstName, lastName, designation, phone, address,
+                                 salary, currency, status, month, year, salaryBump, bonus) {
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,

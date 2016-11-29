@@ -21,8 +21,8 @@ module.exports = function(sequelize, DataTypes) {
       type: Sequelize.STRING
     },
     designation: {
-      type: Sequelize.ENUM("Engineer", "Software Developer", "Senior Software Developer",
-        "Quality Assurance Engineer", "Human Resource Manager"),
+      type: Sequelize.ENUM("Software Developer", "Senior Software Developer", "Quality Assurance Engineer",
+        "Human Resource Manager"),
       // defaultValue: "Employee",
       allowNull: false
     },

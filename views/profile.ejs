@@ -440,22 +440,35 @@
           <div id="form">
             <div class="col-md-6">
               <label>First Name</label>
-              <input type="text" class="form-control" id="" placeholder="First Name">
+              <input type="text" class="form-control" id="" name="firstName" placeholder="First Name">
             </div>
             <div class="col-md-6">
               <label>Last Name</label>
-              <input type="text" class="form-control" id="" placeholder="Last Name">
+              <input type="text" class="form-control" id="" name="lastName" placeholder="Last Name">
             </div>
+              <label>Username</label>
+              <input type="text" class="form-control" id="" name="userName" placeholder="Username">
+              <label>Password</label>
+              <input name="password" placeholder="Choose Password" class="form-control"  type="password">
             <label>Email</label>
-            <input type="email" class="form-control" id="" placeholder="Email">
+            <input type="email" class="form-control" id="" name="email" placeholder="Email">
             <label>Phone #</label>
-            <input type="number" class="form-control" id="" placeholder="Phone #">
+            <input type="number" class="form-control" id="" name="phone" placeholder="Phone #">
             <label>Designation</label>
-            <select class="form-control" id="">
+            <select class="form-control" id="" name="designation">
               <option>Select Designation</option>
-              <option></option>
-              <option></option>
+              <option>Software Developer</option>
+              <option>Senior Software Developer</option>
+                <option>Quality Assurance Engineer</option>
+                <option>Human Resource Manager</option>
             </select>
+              <label>Rank</label>
+              <select class="form-control" id="" name="rank">
+                  <option>Select Rank</option>
+                  <option>Admin</option>
+                  <option>Engineering Owner</option>
+                  <option>Engineer</option>
+              </select>
             <br>
             <button class="btn btn-block btn-success" >Add User</button>
             
