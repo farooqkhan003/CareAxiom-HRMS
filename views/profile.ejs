@@ -1,4 +1,4 @@
-<% include /header %>
+<% include ./header.ejs %>
 <!-- write you all code here -->
 <div id="main">
 
@@ -142,7 +142,7 @@
                                         <label class="col-md-10 control-label">First Name</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                                <input name="lastName" value="<%= firstName %>" placeholder="First Name" class="form-control" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
                                         <label class="col-md-10 control-label" >Last Name</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                                <input name="lastName" value="<%= lastName %>" placeholder="Last Name" class="form-control"  type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -163,24 +163,40 @@
                                         <label class="col-md-10 control-label">Email</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                                                <input name="email" value="<%= email %>" placeholder="E-Mail Address" class="form-control"  type="text">
                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-10 control-label">Contact</label>
+                                        <div class="col-md-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input type="text" value="<%= phone %>" class="form-control" name="phone" placeholder="Contact"/>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <!-- Text input-->
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-10 control-label">Address</label>
+                                        <div class="col-md-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input type="text" value="<%= address %>" class="form-control" name="address" placeholder="Address"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- only for admin -->
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
                                                 <select class="form-control" id="" name="designation">
-                                                  <option>Select Designation</option>
-                                                  <option>Software Developer</option>
-                                                  <option>Senior Software Developer</option>
-                                                  <option>Quality Assurance Engineer</option>
-                                                  <option>Human Resource Manager</option>
+                                                    <option>Select Designation</option>
+                                                    <option>Software Developer</option>
+                                                    <option>Senior Software Developer</option>
+                                                    <option>Quality Assurance Engineer</option>
+                                                    <option>Human Resource Manager</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -189,19 +205,10 @@
                                     <!-- Text input-->
 
                                     <div class="form-group col-md-12">
-                                        <label class="col-md-10 control-label">Contact</label>
-                                        <div class="col-md-12 inputGroupContainer">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="contact" placeholder="Contact"/>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Salary</label>
                                         <div class="col-md-12 inputGroupContainer">
                                             <div class="input-group">
-                                                <input class="form-control" name="salary" placeholder="Salary"/>
+                                                <input class="form-control" value="<%= salary %>" name="salary" placeholder="Salary"/>
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +219,7 @@
                                         <label class="col-md-10 control-label">Upcomming Bump</label>
                                         <div class="col-md-12 selectContainere">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="bump" id="bump" placeholder=" Upcomming Bump">
+                                                <input type="text" value="<%= bump %>" class="form-control" name="bump" id="bump" placeholder=" Upcomming Bump">
                                             </div>
                                         </div>
                                     </div>
@@ -224,7 +231,7 @@
                                         <label class="col-md-10 control-label">Upcomming Bonus</label>
                                         <div class="col-md-12 selectContainere">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" id="bonus" name="bonus" placeholder="Upcomming Bonus" >
+                                                <input type="text" value="<%= bonus %>" class="form-control" id="bonus" name="bonus" placeholder="Upcomming Bonus" >
                                             </div>
                                         </div>
                                     </div>
@@ -245,24 +252,23 @@
     Upload Video <input type="file" />
 </span>
                                         </div> -->
-                                        <!--uplod-picture close-->
-                                    </div><!--col-md-12 close-->
-                                    <!-- Button -->
-                                    <div class="form-group col-md-10">
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn btn-success submit-button" >Save</button>
-                                            <button type="submit" class="btn submit-button btn-danger " >Cancel</button>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div><!--row close-->
-                    </div><!--container close -->
-                </div><!--tab-pane close-->
-            </div><!--tab-content close-->
-        </div><!--container close-->
+                                    <!--uplod-picture close-->
+                        </div><!--col-md-12 close-->
+                        <!-- Button -->
+                        <div class="form-group col-md-10">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-success submit-button" >Save</button>
+                            </div>
+                        </div>
+                        </fieldset>
+                        </form>
+                    </div><!--row close-->
+                </div><!--container close -->
+            </div><!--tab-pane close-->
+        </div><!--tab-content close-->
+</div><!--container close-->
 
-    </section><!--section close-->
+</section><!--section close-->
 </div> <!-- end of main -->
 
-<% include /footer %>
+<% include ./footer.ejs %>
