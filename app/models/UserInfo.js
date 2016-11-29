@@ -27,10 +27,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     contact_no: {
-      type: Sequelize.STRING,
-      validate: {
-        isNumeric: true
-      }
+      type: Sequelize.STRING
     },
     address: {
       type: Sequelize.STRING

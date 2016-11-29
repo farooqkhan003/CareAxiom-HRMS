@@ -32,35 +32,32 @@ exports.viewProfile = function (req, res, next) {
 
 exports.updateProfile = function (req, res, next) {
   var _user;
-  console.log(req.body);
   return global.db.User.getUserByUserName(req.query.user)
     .then(function (user) {
       _user = user;
       var firstName, lastName, designation, phone, address, salary, currency, salaryBump, bonus,
         yearlyIncrement, availableLeaves;
       if(req.user.rank == 'Admin') {
-        firstName = req.body.firstName;
-        lastName = req.body.lastName;
-        phone = req.body.phone;
-        address = req.body.address;
+        firstName = req.body.firstName ? req.body.firstName : user.get('first_name');
+        lastName = req.body.lastName ? req.body.lastName : user.get('last_name');
+        phone = req.body.phone ? req.body.phone : user.get('phone');
+        address = req.body.address ? req.body.address : user.get('address');
 
         return global.db.UserInfo.updateUserInfoByUserId(user.get('id'), firstName, lastName, phone, address);
       }
       else if(req.user.id == user.get('id')) {
-        firstName = req.body.firstName;
-        lastName = req.body.lastName;
-        designation = req.body.designation;
-        phone = req.body.phone;
-        address = req.body.address;
-        salary = req.body.salary;
-        currency = req.body.currency;
-        salaryBump = req.body.salaryBump;
-        bonus = req.body.bonus;
-        yearlyIncrement = req.body.yearlyIncrement;
-        availableLeaves = req.body.availableLeaves;
+        firstName = req.body.firstName ? req.body.firstName : user.get('first_name');
+        lastName = req.body.lastName ? req.body.lastName : user.get('last_name');
+        designation = req.body.designation ? req.body.designation : user.get('designation');
+        phone = req.body.phone ? req.body.phone : user.get('phone');
+        address = req.body.address ? req.body.address : user.get('address');
+        salary = req.body.salary ? req.body.salary : user.get('salary');
+        currency = req.body.currency ? req.body.currency : user.get('currency');
+        salaryBump = req.body.bump ? req.body.bump : user.get('salary_bump');
+        bonus = req.body.bonus ? req.body.bonus : user.get('bonus');
+        yearlyIncrement = user.get('yearly_increment');
+        availableLeaves = user.get('available_leaves');
 
-        // userId, firstName, lastName, designation, phone, address, salary,
-        //   currency, salaryBump, bonus, yearlyIncrement, availableLeaves;
         return global.db.UserInfo.updateUserInfoByAdmin(user.get('id'), firstName, lastName, designation, phone,
           address, salary, currency, salaryBump, bonus, yearlyIncrement, availableLeaves);
       }
