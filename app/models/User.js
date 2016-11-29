@@ -69,7 +69,7 @@ module.exports = function(sequelize, DataTypes) {
       // }
     },
     classMethods: {
-      addUserQuick: function (userName, email, password, rank, firstName, lastName, designation, phone) {
+      addUserQuick: function (userName, email, password, rank, firstName, lastName, designation, phone, salary) {
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,
@@ -84,7 +84,7 @@ module.exports = function(sequelize, DataTypes) {
               last_name: lastName,
               designation: designation,
               contact_no: phone,
-              salary_amount: 0,
+              salary_amount: salary,
               user_id: user.id
             }, {
               transaction: t
