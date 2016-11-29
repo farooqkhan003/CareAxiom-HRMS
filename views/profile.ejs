@@ -66,6 +66,10 @@
                                             <td><%= lastName %></td>
                                         </tr>
                                         <tr>
+                                            <td>Username</td>
+                                            <td><%= userName %></td>
+                                        </tr>
+                                        <tr>
                                             <td>Email</td>
                                             <td><%= email %></td>
                                         </tr>
@@ -134,7 +138,7 @@
                         <br />
                         <div class="row">
 
-                            <form class="form-horizontal main_form text-left" action="/profile/update?user=abcde" method="post" id="contact_form">
+                            <form class="form-horizontal main_form text-left" action="/profile/update?user=<%= userName %>" method="post" id="contact_form">
                                 <fieldset>
 
                                     <div class="form-group col-md-12">
@@ -186,7 +190,7 @@
                                     </div>
 
                                     <!-- only for admin -->
-                                    <% if(session=='admin'){%>
+                                    <% if(rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -204,7 +208,7 @@
                                     <%} %>
 
                                     <!-- Text input-->
-
+                                    <% if(rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Salary</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -213,10 +217,10 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <%} %>
 
                                     <!-- only for admin -->
-                                    <% if(session=='admin'){%>
+                                    <% if(rank == 'admin') {%>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bump</label>
                                         <div class="col-md-12 selectContainere">
@@ -228,7 +232,7 @@
                                     <%} %>
 
                                     <!-- Select Basic -->
-
+                                    <% if(rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bonus</label>
                                         <div class="col-md-12 selectContainere">
@@ -237,7 +241,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <%} %>
 
 
                                     <!-- upload profile picture -->

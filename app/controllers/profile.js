@@ -4,7 +4,7 @@ exports.viewProfile = function (req, res, next) {
   return global.db.User.getUserByUserName(req.query.user)
     .then(function (user) {
       _user = user;
-      if(req.user.rank == 'Admin' || req.user.id == user.get('id')) {
+      if(req.user.rank == 'admin' || req.user.id == user.get('id')) {
         return global.db.UserInfo.getUserInfoByUserId(user.get('id'));
       }
       else {
@@ -14,6 +14,7 @@ exports.viewProfile = function (req, res, next) {
       return res.render('profile', {
         firstName: userInfo.get('first_name'),
         lastName: userInfo.get('last_name'),
+        userName: _user.get('username'),
         email: _user.get('email'),
         joinDate: userInfo.get('join_date'),
         rank: _user.get('rank'),
@@ -37,7 +38,7 @@ exports.updateProfile = function (req, res, next) {
       _user = user;
       var firstName, lastName, designation, phone, address, salary, currency, salaryBump, bonus,
         yearlyIncrement, availableLeaves;
-      if(req.user.rank == 'Admin') {
+      if(req.user.rank == 'admin') {
         firstName = req.body.firstName ? req.body.firstName : user.get('first_name');
         lastName = req.body.lastName ? req.body.lastName : user.get('last_name');
         phone = req.body.phone ? req.body.phone : user.get('phone');
