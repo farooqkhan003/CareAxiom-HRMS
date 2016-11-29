@@ -69,19 +69,19 @@
   <div class="profile-head">  
     <div class="col-md- col-sm-4 col-xs-12">
       <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif" class="img-responsive" />
-    <h6>Jenifer Smith</h6>
+    <h6><%= firstName %> <%= lastName %></h6>
   </div><!--col-md-4 col-sm-4 col-xs-12 close-->
 
 
     <div class="col-md-5 col-sm-5 col-xs-12">
-      <h5>Jenifer Smith</h5>
-      <p>Web Designer / Develpor </p>
+      <h5><%= firstName %> <%= lastName %></h5>
+      <p><%= designation %> / <%= rank %></p>
       <ul>
-        <li><span class="glyphicon glyphicon-briefcase"></span> 5 years</li>
+        <li><span class="glyphicon glyphicon-briefcase"></span> <%= joinDate %></li>
         <li><span class="glyphicon glyphicon-map-marker"></span> U.S.A.</li>
-        <li><span class="glyphicon glyphicon-home"></span> 555 street Address,toedo 43606 U.S.A.</li>
-        <li title="phone"><span class="glyphicon glyphicon-phone"></span>(+021) 956 789123</li>
-        <li title="email"><span class="glyphicon glyphicon-envelope"></span>jenifer123@gmail.com</li>
+        <li><span class="glyphicon glyphicon-home"></span> <%= address %></li>
+        <li title="phone"><span class="glyphicon glyphicon-phone"></span><%= phone %></li>
+        <li title="email"><span class="glyphicon glyphicon-envelope"></span><%= email %></li>
       </ul>
     </div><!--col-md-8 col-sm-8 col-xs-12 close-->
   </div><!--profile-head close-->
@@ -121,23 +121,23 @@
       <tbody>
      <tr>      
         <td>Firstname</td>
-        <td>: jenifer</td> 
+        <td><%= firstName %></td>
      </tr>
      <tr>    
         <td>Lastname</td>
-        <td>: smith</td>       
+        <td><%= lastName %></td>
      </tr>
-     <tr>    
-        <td>Birthday</td>
-        <td>: 10 january 1980</td>       
-    </tr>
-    <tr>    
-        <td>Contury</td>
-        <td>: U.S.A.</td>       
+     <tr>
+        <td>Email</td>
+        <td><%= email %></td>
     </tr>
     <tr>
-        <td>Occupation</td>
-        <td>: Web Designer</td> 
+        <td>Join Date</td>
+        <td><%= joinDate %></td>
+    </tr>
+    <tr>
+        <td>Designation</td>
+        <td><%= designation %></td>
      </tr>
 
     </tbody>
@@ -151,24 +151,24 @@
   <table class="table bio-table">
       <tbody>
      <tr>  
-        <td>Emai Id</td>
-        <td>: jenifer123@gmail.com</td> 
+        <td>Contact</td>
+        <td><%= phone %></td>
      </tr>
      <tr>    
-        <td>Mobile</td>
-        <td>: (+6283) 456 789</td>       
+        <td>Salary</td>
+        <td><%= salary %></td>
      </tr>
      <tr>    
-        <td>Phone</td>
-        <td>: (+021) 956 789123</td>       
+        <td>Upcoming Bump</td>
+        <td><%= bump %></td>
     </tr>
     <tr>    
-        <td>Experience</td>
-        <td>: 5 years</td>       
+        <td>Upcoming Bonus</td>
+        <td><%= bonus %></td>
     </tr>
     <tr>
-        <td>Twiter</td>
-        <td>#@jenifer123</td> 
+        <td>Available Leaves</td>
+        <td><%= availableLeaves %></td>
      </tr>
 
     </tbody>
@@ -196,9 +196,8 @@
 <br />
 <div class="row">
 
-<form class="form-horizontal main_form text-left" action=" " method="post"  id="contact_form">
+<form class="form-horizontal main_form text-left" action="/profile/update?user=abcde" method="post" id="contact_form">
 <fieldset>
-
 
 <div class="form-group col-md-12">
   <label class="col-md-10 control-label">First Name</label>  
@@ -248,7 +247,7 @@
   <label class="col-md-10 control-label">Address</label>
     <div class="col-md-12 inputGroupContainer">
     <div class="input-group">
-            <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+        <textarea class="form-control" name="address" placeholder="Project Description"></textarea>
   </div>
   </div>
 </div>
@@ -257,7 +256,7 @@
   <label class="col-md-10 control-label">Project Description</label>
     <div class="col-md-12 inputGroupContainer">
     <div class="input-group">
-          <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+        <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
   </div>
   </div>
 </div>
@@ -366,7 +365,7 @@
   <label class="col-md-10 control-label">Choose Password</label>  
   <div class="col-md-12 inputGroupContainer">
   <div class="input-group">
-  <input  name="first_name" placeholder="Choose Password" class="form-control"  type="password">
+  <input name="password1" placeholder="Choose Password" class="form-control"  type="password">
     </div>
   </div>
 </div>
@@ -374,10 +373,10 @@
 
 
 <div class="form-group col-md-12">
-  <label class="col-md-10 control-label">Confiram Password</label>  
+  <label class="col-md-10 control-label">Confirm Password</label>
   <div class="col-md-12 inputGroupContainer">
   <div class="input-group">
-  <input  name="first_name" placeholder="Confiram Password" class="form-control"  type="password">
+  <input name="password2" placeholder="Confirm Password" class="form-control"  type="password">
     </div>
   </div>
 </div>

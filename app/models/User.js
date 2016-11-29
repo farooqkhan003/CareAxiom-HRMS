@@ -1,7 +1,6 @@
 "use strict";
 
 var Sequelize = require('sequelize');
-var Promise = require('bluebird');
 var bcrypt = require('bcrypt');
 
 module.exports = function(sequelize, DataTypes) {
@@ -43,6 +42,11 @@ module.exports = function(sequelize, DataTypes) {
         // is: ["^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{5,}$", 'i']
       }
     },
+    rank: {
+      type: Sequelize.ENUM("Admin", "Engineering Owner", "Engineer"),
+      defaultValue: 'Engineer',
+      allowNull: false
+    },
     is_archived: {
       type: Sequelize.BOOLEAN,
       defaultValue: 0,
@@ -65,13 +69,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     classMethods: {
-      addUser: function (userName, email, password, firstName, lastName, designation, phone, address, salary,
+      addUser: function (userName, email, password, rank, firstName, lastName, designation, phone, address, salary,
                          currency, status, month, year, salaryBump, bonus) {
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,
             email: email,
-            password: password
+            password: password,
+            rank: rank
           }, {
             transaction : t
           }).then(function (user) {
@@ -93,6 +98,14 @@ module.exports = function(sequelize, DataTypes) {
               transaction: t
             });
           });
+        });
+      },
+      getUserById: function (userId) {
+        return global.db.User.findOne({
+          where: {
+            id: userId,
+            is_archived: false
+          }
         });
       },
       getUserByUserName: function (userName) {

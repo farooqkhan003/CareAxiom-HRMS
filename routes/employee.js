@@ -6,11 +6,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/abc/:abc', function(req, res, next) {
-
   res.json({ abc : 'abc' });
-  // req.user.id -> ID of the person logged in
-  // req.params.user_id -> ID of person in url
-  // console.log(req.app.locals.rootDirectory);
+  // req.params.abc
 });
 
 module.exports = router;

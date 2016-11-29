@@ -11,7 +11,10 @@ var session = require('express-session');
 // app.locals.rootDirectory = __dirname;
 
 var index = require('./routes/index');
+var profile = require('./routes/profile');
+var calendar = require('./routes/calendar');
 var employee = require('./routes/employee');
+var company = require('./routes/company');
 var authentication = require('./app/middlewares/authentication');
 
 var app = express();
@@ -35,9 +38,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
+
 app.use('/', index);
+app.use('/profile', authentication.isAuthenticated, profile);
+app.use('/calendar', authentication.isAuthenticated, calendar);
 app.use('/employee', authentication.isAuthenticated, employee);
+app.use('/company', company);
 app.post('/login', function(req, res, next) {
   passport.authenticate('local.signIn', function(err, user, info) {
     if (err) { return next(err); }
@@ -47,7 +53,8 @@ app.post('/login', function(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/employee');
+      var redirectURL = '/profile?user=' + user.get('username');
+      return res.redirect(redirectURL);
     });
   })(req, res, next);
 });

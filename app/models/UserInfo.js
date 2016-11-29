@@ -69,7 +69,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     join_date: {
-      type: Sequelize.DATE,
+      type: Sequelize.DATEONLY,
       defaultValue: Sequelize.NOW,
       allowNull: false
     },
