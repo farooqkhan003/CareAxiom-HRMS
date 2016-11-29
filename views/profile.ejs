@@ -186,6 +186,7 @@
                                     </div>
 
                                     <!-- only for admin -->
+                                    <% if(session=='admin'){%>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -200,6 +201,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <%} %>
 
                                     <!-- Text input-->
 
@@ -214,6 +216,7 @@
 
 
                                     <!-- only for admin -->
+                                    <% if(session=='admin'){%>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bump</label>
                                         <div class="col-md-12 selectContainere">
@@ -222,7 +225,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <%} %>
 
                                     <!-- Select Basic -->
 
