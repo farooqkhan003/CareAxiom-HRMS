@@ -1,0 +1,57 @@
+<% include header.ejs%>
+
+<div id="main">
+    <div class="row">
+        <!-- Boxes de Acoes -->
+        <% modules.forEach(function(module) { %>
+        <div class="col-xs-12 col-sm-6 col-lg-4">
+            <div class="box">
+                <div class="icon">
+                    <div class="image"><i class="fa fa-code"></i></div>
+                    <div class="info">
+                        <h3 id="title<%=module.id%>" class="title"><%= module.title%></h3>
+                        <p id="description<%=module.id%>">
+                            <%= module.description%>
+                        </p>
+                        <div class="more">
+                            <button id="<%= module.id %>" class="btn btn-info" title="edit" onclick="editModule(this.id)">
+                                Edit <i class="fa fa-pencil-square-o"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+        </div>
+        <% });%>
+    </div>
+
+    <div id="edit" class="collapse">
+        <hr>
+        <h2 class="text-center">Edit Module</h2>
+        <div class="row text-left">
+            <div class=" col-md-offset-4 col-md-4">
+                <label class="alert alert-danger btn-block text-center"></label>
+                <label>Title</label>
+                <input class="form-control" type="text" name="title" id="title">
+                <label>Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+                <input type="submit" value="Update" class="form-control btn-success">
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+
+
+
+
+<%include footer%>
+<script>
+    function editModule(id) {
+        $('#edit').addClass('in');
+        $('#title').val(document.getElementById('title'+id).innerHTML);
+        $('#description').val((document.getElementById('description'+id).innerHTML).trim());
+    }
+</script>
