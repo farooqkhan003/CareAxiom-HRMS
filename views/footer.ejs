@@ -52,19 +52,20 @@
 <div class="modal fade" id="L-WFH-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class="loginmodal-container extra-large">
-      <h1>Apply For Leave/EFH</h1><br>
+      <h1>Apply For Leave/Work From Home</h1><br>
       <div id="form">
         <div class="row">
           <div class="col-md-6">
             <label>Apply For</label>
-            <select class="form-control" id="">
-              <option>Leave</option>
-              <option>Work from Home</option>
+            <select class="form-control" id="" name="leaveType">
+              <option>full day</option>
+              <option>half day</option>
+              <option>work from home</option>
             </select>
           </div>
           <div class="col-md-6">
             <label>Available Leaves</label>
-            <input disabled class="form-control" value="9" >
+            <input disabled class="form-control" value="<%= availableLeaves %>" >
           </div>
         </div>  <!-- end of row -->
         <label>Date</label>
@@ -74,7 +75,7 @@
         </div>
         <br>
         <label>Description</label>
-        <textarea class="form-control" placeholder="Reason..."></textarea>
+        <textarea name="reason" class="form-control" placeholder="Reason..."></textarea>
         <br>
         <button class="btn btn-block btn-success" >Apply</button>
 

@@ -1,5 +1,5 @@
 
-exports.addNewUserQuick = function (req, res, next) {
+exports.applyForLeave = function (req, res, next) {
   if(req.user.rank == 'admin') {
     var userName = req.body.userName;
     var email = req.body.email;
