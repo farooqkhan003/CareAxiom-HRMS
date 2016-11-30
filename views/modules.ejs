@@ -9,7 +9,7 @@
                 <div class="icon">
                     <div class="image"><i class="fa fa-code"></i></div>
                     <div class="info">
-                        <input value="<%= module.id %>" hidden>
+                        <input id="module<%= module.id %>" value="<%= module.id %>" hidden>
                         <h3 id="title<%= module.id %>" class="title"><%= module.moduleName %></h3>
                         <p id="description<%= module.id %>">
                             <%= module.description %>
@@ -37,7 +37,7 @@
             <div class=" col-md-offset-4 col-md-4">
                 <form action="/company/modules/update" method="post" id="update_module_form">
                     <label class="alert alert-danger btn-block text-center"></label>
-                    <input type="text" value="" id="modileID" name="moduleId" hidden>
+                    <input type="text" value="" id="moduleID" name="moduleId" hidden>
                     <label>Title</label>
                     <input class="form-control" type="text" name="moduleName" id="title">
                     <label>Description</label>
@@ -53,7 +53,8 @@
 
 <!-- Add new module modal -->
 
-<div class="modal fade" id="add-new-module" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="add-new-module" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="loginmodal-container extra-large">
             <h1>Add New Module</h1><br>
@@ -75,9 +76,9 @@
 <script>
     function editModule(id) {
         $('#edit').addClass('in');
-        $('#moduleId').val('module' + id);
+        $('#moduleID').val(id);
         $('#title').val(document.getElementById('title' + id).innerHTML);
         $('#description').val((document.getElementById('description' + id).innerHTML).trim());
-        console.log($('#modileID').val());
+        console.log($('#moduleID').val());
     }
 </script>
