@@ -39,14 +39,17 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     hooks: {
-      beforeCreate: function (userLeave) {
+      beforeCreate: function (leaveHistory) {
         return global.db.UserInfo.findOne({
-          where: { user_id: userLeave.user_id }
+          where: { user_id: leaveHistory.user_id }
         }).then(function (userInfo) {
           if ((userInfo.available_leaves - 1.0) < 1.0)
             throw new Error("Leaves unavailable");
           else {
-            userInfo.available_leaves -= 1.0;
+            if(leaveHistory.leave_type == 'full day')
+              userInfo.available_leaves -= 1.0;
+            else if(leaveHistory.leave_type == 'half day')
+              userInfo.available_leaves -= 0.5;
 
             return userInfo.updateAttributes({
               available_leaves: userInfo.available_leaves
