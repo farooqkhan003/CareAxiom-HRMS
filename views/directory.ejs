@@ -1,109 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Directory View</title>
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/side-navigation.css">
-  <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-  <link href="DataTables/media/css/jquery.dataTables.min.css" rel="stylesheet">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-
 <% include ./template.ejs %>
 
 <!-- write you all code here -->
 <div id="main" class="text-center">
-  <h2>Directory View</h2> <br>
-  <div class="table-responsive">
-    <table class="table display table-bordered" id="table">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Designation</th>
-        <th>Email</th>
-        <th>Phone #</th>
-        <th>Address</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>Farooq Khan</td>
-        <td>CEO :p</td>
-        <td>email@emailc.com</td>
-        <td>123123123</td>
-        <td>240 shad bagh</td>
+    <h2>Directory View</h2> <br>
+    <div class="table-responsive">
+        <table class="table display table-bordered" id="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Email</th>
+                <th>Phone #</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% employees.forEach(function(employee) { %>
+            <tr>
+                <td><%= employee.name %></td>
+                <td><%= employee.designation %></td>
+                <td><%= employee.email %></td>
+                <td><%= employee.phone %></td>
+                <td><%= employee.address %></td>
 
-      </tr>
-
-      <tr>
-        <td>Farooq Khan</td>
-        <td>CEO :p</td>
-        <td>email@emailc.com</td>
-        <td>123123123</td>
-        <td>240 shad bagh</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
 </div>
 <br><br>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<script type="text/javascript" src="DataTables/media/js/jquery.dataTables.min.js"></script>
-</body>
+<% include footer.ejs %>
 <script type="text/javascript">
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
 </script>
-<script type="text/javascript">
-  $(function() {
-
-    var start = moment().subtract(0, 'days');
-    var end = moment();
-
-    function cb(start, end) {
-      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-    }
-
-    $('#reportrange').daterangepicker({
-      startDate: start,
-      endDate: end,
-      ranges: {
-        'Today': [moment(), moment()],
-        'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
-        'Next 7 Days': [moment().add(1, 'days'), moment().add(7, 'days')]
-      }
-    }, cb);
-
-    cb(start, end);
-
-  });
-</script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#table').DataTable();
-  });
-
-</script>
-</html>
