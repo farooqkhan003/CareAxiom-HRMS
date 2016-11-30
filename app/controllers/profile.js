@@ -69,7 +69,7 @@ exports.updateProfile = function (req, res, next) {
       }
     }).then(function (affectedCount, updatedUserInfo) {
       // var userInfo = Sequelize.Utils._.first(updatedUserInfo);
-      var redirectURL = '/profile?user=' + _user.get('username');
+      var redirectURL = '/profile/view?user=' + _user.get('username');
       return res.redirect(redirectURL);
     }).catch(function (err) {
       console.log("Error", err);

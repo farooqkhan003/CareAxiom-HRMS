@@ -10,7 +10,7 @@
                     <div class="image"><i class="fa fa-code"></i></div>
                     <div class="info">
                         <input value="<%= module.id %>" hidden>
-                        <h3 id="title<%= module.id %>" class="title"><%= module.title %></h3>
+                        <h3 id="title<%= module.id %>" class="title"><%= module.moduleName %></h3>
                         <p id="description<%= module.id %>">
                             <%= module.description %>
                         </p>
@@ -34,7 +34,7 @@
             <div class=" col-md-offset-4 col-md-4">
                 <label class="alert alert-danger btn-block text-center"></label>
                 <label>Title</label>
-                <input class="form-control" type="text" name="title" id="title">
+                <input class="form-control" type="text" name="moduleName" id="title">
                 <label>Description</label>
                 <textarea class="form-control" id="description" name="description"></textarea>
                 <input type="submit" value="Update" class="form-control btn-success">

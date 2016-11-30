@@ -8,7 +8,7 @@ exports.applyForLeave = function (req, res, next) {
 
   return global.db.LeaveHistory.applyForLeave(req.user.id, leaveType, reason, leaveDate)
     .then(function (leaveHistory) {
-      var redirectURL = '/profile?user=' + req.user.userName;
+      var redirectURL = '/profile/view?user=' + req.user.userName;
       return res.redirect(redirectURL);
     }).catch(function (err) {
 

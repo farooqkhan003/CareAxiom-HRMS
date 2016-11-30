@@ -4,7 +4,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
   if(req.isAuthenticated()) {
-    var redirectURL = '/profile?user=' + req.user.userName;
+    var redirectURL = '/profile/view?user=' + req.user.userName;
     return res.redirect(redirectURL);
   }
   else {
@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
       null, null, '10', 'PKR', 'pending', new Date().getMonth(), new Date().getYear(), '0', '0');
     global.db.User.addUserComplete('abcdef', 'ab@abc.com', 'mmmmm', 'engineer', 'ab', 'cba', 'Software Developer',
       null, null, '10', 'PKR', 'pending', new Date().getMonth(), new Date().getYear(), '0', '0');
+    global.db.Module.addModule('moduleName', 'moduleDescription');
 
     res.render('login', { message : req.flash('message') });
   }

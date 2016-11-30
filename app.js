@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -58,7 +58,7 @@ app.post('/login', function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            var redirectURL = '/profile?user=' + user.get('username');
+            var redirectURL = '/profile/view?user=' + user.get('username');
             return res.redirect(redirectURL);
         });
     })(req, res, next);
