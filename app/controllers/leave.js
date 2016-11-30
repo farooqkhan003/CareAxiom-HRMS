@@ -11,6 +11,6 @@ exports.applyForLeave = function (req, res, next) {
       var redirectURL = '/profile/view?user=' + req.user.userName;
       return res.redirect(redirectURL);
     }).catch(function (err) {
-
+      console.log(err);
     });
 };

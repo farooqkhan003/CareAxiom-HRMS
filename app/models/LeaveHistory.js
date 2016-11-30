@@ -18,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
       type: Sequelize.TEXT
     },
     leave_date: {
-      type: Sequelize.DATEONLY,
+      // type: Sequelize.DATEONLY,
+      type: Sequelize.STRING,
       allowNull: false
     },
     applied_at: {
