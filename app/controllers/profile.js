@@ -24,7 +24,9 @@ exports.viewProfile = function (req, res, next) {
         salary: userInfo.get('salary_amount'),
         bump: userInfo.get('salary_bump'),
         bonus: userInfo.get('bonus'),
-        availableLeaves: userInfo.get('available_leaves')
+        availableLeaves: userInfo.get('available_leaves'),
+
+        message: req.flash('message')
       });
     }).catch(function (err) {
       console.log("Error", err);
