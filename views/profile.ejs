@@ -300,15 +300,16 @@
                     </div>
                 </div>  <!-- end of row -->
                 <label>Date</label>
+                <input type="text" hidden id="calendar" value="">
                 <div id="reportrange" name="leaveDatee" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; border-radius: 2px;">
                     <i name="leaveDateee" class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-                    <span name="leaveDate"></span> <b class="caret"></b>
+                    <span name="leaveDate" id="calendar_span"></span> <b class="caret"></b>
                 </div>
                 <br>
                 <label>Description</label>
-                <textarea name="reason" class="form-control" placeholder="Reason..."></textarea>
+                <textarea name="reason" id="reason" class="form-control" placeholder="Reason..."></textarea>
                 <br>
-                <button class="btn btn-block btn-success" >Apply</button>
+                <button type="submit" class="btn btn-block btn-success" >Apply</button>
 
             </form> <!-- end of form -->
             <br>
@@ -342,5 +343,10 @@
 
         cb(start, end);
 
+    });
+    $('#reason').keyup(function() {
+        $('#calendar').val($('#calendar_span').text());
+        console.log('alu\n');
+        console.log($('#calendar').val());
     });
 </script>
