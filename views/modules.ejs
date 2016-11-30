@@ -3,6 +3,7 @@
 <div id="main">
     <div class="row">
         <!-- Boxes de Acoes -->
+        <% if(modules) { %>
         <% modules.forEach(function(module) { %>
         <div class="col-xs-12 col-sm-6 col-lg-4">
             <div class="box">
@@ -28,6 +29,7 @@
             </div>
         </div>
         <% }); %>
+        <% } %>
     </div>
 
     <div id="edit" class="collapse">
