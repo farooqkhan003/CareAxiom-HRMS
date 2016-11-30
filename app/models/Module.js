@@ -50,13 +50,13 @@ module.exports = function(sequelize, DataTypes) {
           where: { is_archived : false }
         });
       },
-      updateModuleByName: function (oldModuleName, newModuleName, description) {
+      updateModuleByModuleId: function (moduleId, newModuleName, description) {
         return global.db.Module.update({
           module_name: newModuleName,
           description: description
         }, {
           where: {
-            module_name: oldModuleName,
+            id: moduleId,
             is_archived: false
           }
         });

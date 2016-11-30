@@ -16,7 +16,7 @@ exports.addNewUserQuick = function (req, res, next) {
       .then(function (userInfo) {
         return global.db.User.getUserById(userInfo.get('id'));
       }).then(function (user) {
-        var redirectURL = '/profile?user=' + user.get('username');
+        var redirectURL = '/profile/view?user=' + user.get('username');
         return res.redirect(redirectURL);
       }).catch(function (err) {
         
