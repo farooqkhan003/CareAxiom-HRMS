@@ -33,6 +33,7 @@
         <div class="row text-left">
             <div class=" col-md-offset-4 col-md-4">
                 <label class="alert alert-danger btn-block text-center"></label>
+                <input type="text" value="" id="modileID" name="moduleId" hidden>
                 <label>Title</label>
                 <input class="form-control" type="text" name="moduleName" id="title">
                 <label>Description</label>
@@ -49,7 +50,9 @@
 <script>
     function editModule(id) {
         $('#edit').addClass('in');
+        $('#moduleId').val('module'+id);
         $('#title').val(document.getElementById('title'+id).innerHTML);
         $('#description').val((document.getElementById('description'+id).innerHTML).trim());
+        console.log($('#modileID').val());
     }
 </script>
