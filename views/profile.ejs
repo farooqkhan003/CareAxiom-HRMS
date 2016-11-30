@@ -258,7 +258,7 @@
 </span>
                                         </div> -->
                                     <!--uplod-picture close-->
-                        </div><!--col-md-12 close-->
+                                    <!--</div>col-md-12 close-->
                         <!-- Button -->
                         <div class="form-group col-md-10">
                             <div class="col-md-6">
@@ -276,4 +276,71 @@
 </section><!--section close-->
 </div> <!-- end of main -->
 
+
+
+<!-- Add New Apply for leave/WFH -->
+
+<div class="modal fade" id="L-WFH-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container extra-large">
+            <h1>Apply For Leave/Work From Home</h1><br>
+            <form action="/employee/applyLeave" method="post" id="apply_leave_form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Apply For</label>
+                        <select class="form-control" id="" name="leaveType">
+                            <option>full day</option>
+                            <option>half day</option>
+                            <option>work from home</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Available Leaves</label>
+                        <input disabled class="form-control" value="<%= availableLeaves %>" >
+                    </div>
+                </div>  <!-- end of row -->
+                <label>Date</label>
+                <div id="reportrange" name="leaveDatee" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; border-radius: 2px;">
+                    <i name="leaveDateee" class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                    <span name="leaveDate"></span> <b class="caret"></b>
+                </div>
+                <br>
+                <label>Description</label>
+                <textarea name="reason" class="form-control" placeholder="Reason..."></textarea>
+                <br>
+                <button class="btn btn-block btn-success" >Apply</button>
+
+            </form> <!-- end of form -->
+            <br>
+        </div>
+    </div>
+</div>
+
+<!-- End of Apply for leave/WFH -->
+
 <% include ./footer.ejs %>
+
+<script type="text/javascript">
+    $(function() {
+
+        var start = moment().subtract(0, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
+                'Next 7 Days': [moment().add(1, 'days'), moment().add(7, 'days')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
+</script>
