@@ -33,30 +33,6 @@
 
 <% include footer.ejs %>
 <script type="text/javascript">
-    $(function () {
-
-        var start = moment().subtract(0, 'days');
-        var end = moment();
-
-        function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-
-        $('#reportrange').daterangepicker({
-            startDate: start,
-            endDate: end,
-            ranges: {
-                'Today': [moment(), moment()],
-                'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
-                'Next 7 Days': [moment().add(1, 'days'), moment().add(7, 'days')]
-            }
-        }, cb);
-
-        cb(start, end);
-
-    });
-</script>
-<script type="text/javascript">
     $(document).ready(function () {
         $('#table').DataTable();
     });
