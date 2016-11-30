@@ -1,6 +1,6 @@
 
 exports.addNewUserQuick = function (req, res, next) {
-  if(req.user.rank == 'Admin') {
+  if(req.user.rank == 'admin') {
     var userName = req.body.userName;
     var email = req.body.email;
     var password = req.body.password;

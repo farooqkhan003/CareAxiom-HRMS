@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var user = require('../app/controllers/employee/user');
-var leave = require('../app/controllers/employee/leave');
+var user = require('../app/controllers/user');
+var leave = require('../app/controllers/leave');
 
 router.get('/', function(req, res, next) {
   res.render('profile');

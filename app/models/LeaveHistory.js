@@ -11,13 +11,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     leave_type: {
-      type: Sequelize.ENUM("full_day", "half_day", "work_from_home"),
+      type: Sequelize.ENUM("full day", "half day", "work from home"),
       allowNull: false
     },
     reason: {
       type: Sequelize.TEXT
     },
-    apply_for: {
+    leave_date: {
       type: Sequelize.DATEONLY,
       allowNull: false
     },
@@ -58,11 +58,11 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     classMethods: {
-      applyForLeave: function(userId, leaveType, reason, applyFor) {
+      applyForLeave: function(userId, leaveType, reason, leaveDate) {
         return global.db.LeaveHistory.findOrCreate({
           where: {
             user_id: userId,
-            apply_for: applyFor
+            leave_date: leaveDate
           },
           defaults: {
             reason: reason,

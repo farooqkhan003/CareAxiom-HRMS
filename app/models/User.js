@@ -43,7 +43,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     rank: {
-      type: Sequelize.ENUM("Admin", "Engineering Owner", "Engineer"),
+      type: Sequelize.ENUM("admin", "engineering owner", "engineer"),
       defaultValue: 'Engineer',
       allowNull: false
     },
