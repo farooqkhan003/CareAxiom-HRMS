@@ -49,6 +49,28 @@
     <br><br>
 </div>
 
+
+
+<!-- Add new module modal -->
+
+<div class="modal fade" id="add-new-module" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container extra-large">
+            <h1>Add New Module</h1><br>
+            <form action="/company/modules/new" method="post" id="new-module">
+                    <lable>Title</lable>
+                    <input type="text" class="form-control" placeholder="Title">
+                    <lable>Description</lable>
+                    <textarea type="text" class="form-control" placeholder="Description"></textarea>
+                    <input type="submit" class="form-control btn-success" value="Add Module">
+            </form> <!-- end of form -->
+            <br>
+        </div>
+    </div>
+</div>
+
+<!-- End of add module modal -->
+
 <% include ./footer.ejs %>
 <script>
     function editModule(id) {
