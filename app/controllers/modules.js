@@ -2,6 +2,8 @@ var _ = require('underscore');
 
 exports.addModule = function (req, res, next) {
 
+  console.log(req.body);
+
   if(req.user.rank != 'admin') {
     throw new Error('Unauthorized Access', 403);
   }
@@ -10,7 +12,7 @@ exports.addModule = function (req, res, next) {
 
   global.db.Module.addModule(moduleName, description)
     .then(function (module) {
-      return res.redirect('/modules/view');
+      return res.redirect('/company/modules/view');
     }).catch(function (err) {
 
   });
@@ -44,7 +46,7 @@ exports.updateModule = function (req, res, next) {
 
   global.db.Module.updateModuleByModuleId(moduleId, moduleName, description)
     .then(function (module) {
-      return res.redirect('/modules/view');
+      return res.redirect('/company/modules/view');
     }).catch(function (err) {
 
   });

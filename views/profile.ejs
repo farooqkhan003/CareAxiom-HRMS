@@ -138,7 +138,7 @@
                         <br />
                         <div class="row">
 
-                            <form class="form-horizontal main_form text-left" action="/profile/update?user=<%= userName %>" method="post" id="contact_form">
+                            <form class="form-horizontal main_form text-left" action="/profile/update?user=<%= user.userName %>" method="post" id="contact_form">
                                 <fieldset>
 
                                     <div class="form-group col-md-12">
@@ -190,7 +190,7 @@
                                     </div>
 
                                     <!-- only for admin -->
-                                    <% if(rank == 'admin') { %>
+                                    <% if(user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -204,10 +204,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
                                     <!-- Text input-->
-                                    <% if(rank == 'admin') { %>
+                                    <% if(user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Salary</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -216,10 +216,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
                                     <!-- only for admin -->
-                                    <% if(rank == 'admin') {%>
+                                    <% if(user.rank == 'admin') {%>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bump</label>
                                         <div class="col-md-12 selectContainere">
@@ -228,10 +228,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
                                     <!-- Select Basic -->
-                                    <% if(rank == 'admin') { %>
+                                    <% if(user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bonus</label>
                                         <div class="col-md-12 selectContainere">
@@ -240,7 +240,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
 
                                     <!-- upload profile picture -->

@@ -41,15 +41,20 @@
             <a class="navbar-brand" href="#"><b><img src="/photos/Careaxiom.png"></b></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
+        <% if(user) { %>
         <div class="collapse navbar-collapse"
              id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <% if(user.rank == 'admin') { %>
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">New User</a></li>
                 <li><a href="#">Delete User</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#add-new-module">Add Module</a></li>
+                <% } %>
                 <li><a href="#" data-toggle="modal" data-target="#L-WFH-modal">Apply for Leave/WFH</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
+        <% } %>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -57,7 +62,8 @@
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/profile?user=abcde">
+    <% if(user) { %>
+    <a href="/profile?user=<% user ? user.userName : 'null' %>">
         <button class="btn btn-block btn-info">Profile</button>
     </a>
     <a href="">
@@ -66,6 +72,7 @@
     <a href="#">
         <button class="btn btn-block btn-default">Employee</button>
     </a>
+    <% } %>
     <a href="./">
         <button class="btn btn-block btn-default btn-yellow">Company</button>
     </a>

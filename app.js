@@ -39,6 +39,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+  console.log('MMMMMMMMMMMMMMMMMMMMM', req.user);
+  res.locals.user = req.user;
+  next();
+});
 
 app.use('/', index);
 app.use('/profile', authentication.isAuthenticated, profile);
