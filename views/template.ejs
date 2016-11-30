@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/side-navigation.css">
   <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" type="text/css" href="css/profile.css">
   <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -58,53 +59,3 @@
   <a href="#"><button class="btn btn-block btn-default">Employee</button></a>
   <a href="#"><button class="btn btn-block btn-default btn-yellow">Company</button></a>
 </div>
-
-<!-- write you all code here -->
-<div id="main">
-
-</div>
-
-<!-- Add New User modal -->
-
-<!-- End of add new user modal -->
-
-<!-- Add New Apply for leave/WFH -->
-
-<!-- End of Apply for leave/WFH -->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-</body>
-<script type="text/javascript">
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-</script>
-<script type="text/javascript">
-  $(function() {
-
-    var start = moment().subtract(0, 'days');
-    var end = moment();
-
-    function cb(start, end) {
-      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-    }
-
-    $('#reportrange').daterangepicker({
-      startDate: start,
-      endDate: end,
-      ranges: {
-        'Today': [moment(), moment()],
-        'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
-        'Next 7 Days': [moment().add(1, 'days'), moment().add(7, 'days')]
-      }
-    }, cb);
-
-    cb(start, end);
-
-  });
-</script>
-</html>
