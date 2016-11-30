@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/new', user.addNewUserQuick);
+router.post('/applyLeave', leave.applyForLeave);
 
 router.get('/abc/:abc', function(req, res, next) {
   res.json({ abc : 'abc' });

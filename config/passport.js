@@ -13,6 +13,7 @@ passport.deserializeUser(function(id, done) {
     }
   }).then(function (user) {
     user.rank = user.get('rank');
+    user.userName = user.get('username');
     done(null, user);
   }).catch(function (err) {
     done(err, null);
