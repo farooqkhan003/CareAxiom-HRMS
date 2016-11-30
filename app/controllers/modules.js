@@ -1,6 +1,6 @@
 
 exports.addModule = function (req, res, next) {
-  return res.render('modules');
+  return res.render('modules',{});
 };
 
 exports.viewModules = function (req, res, next) {
@@ -21,5 +21,5 @@ exports.viewModules = function (req, res, next) {
 };
 
 exports.updateModule = function (req, res, next) {
-  return res.render('modules');
+  return res.render('modules', {});
 };
