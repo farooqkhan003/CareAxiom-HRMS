@@ -15,7 +15,7 @@
                         <p id="description<%= module.id %>">
                             <%= module.description %>
                         </p>
-                        <% if(user.rank == 'admin') { %>
+                        <% if(user && user.rank == 'admin') { %>
                         <div class="more">
                             <button id="<%= module.id %>" class="btn btn-info" title="edit"
                                     onclick="editModule(this.id)">

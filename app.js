@@ -22,7 +22,6 @@ var calendar = require('./routes/calendar');
 var employee = require('./routes/employee');
 var company = require('./routes/company');
 var authentication = require('./app/middlewares/authentication');
-var bodyParser = require('body-parser');
 
 var app = express();
 

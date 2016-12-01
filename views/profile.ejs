@@ -340,6 +340,54 @@
 
 <!-- End of Apply for leave/WFH -->
 
+<% if (user.rank == 'admin'){ %>
+<!-- Delete user for admin -->
+
+<div class="modal fade" id="delete-user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container extra-large">
+            <h1>Delete User</h1><br>
+            <h2>Employee Salary</h2> <br>
+            <div class="table-responsive">
+                <table class="table display table-bordered" id="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% deleteUsers.forEach(function(deleteUser)  { %>
+                    <tr>
+                        <td><%= deleteUser.name%></td>
+                        <td><%= deleteUser.username %></td>
+                        <td>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div id="edit" class="collapse">
+                <div class="row text-left">
+                    <div class=" col-md-offset-4 col-md-4">
+                        <input type="text" id="delte-user-id" hidden value="">
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+            <br>
+        </div>
+    </div>
+</div>
+
+<!-- End of Delete user -->
+<% } %>
 <% include ./footer.ejs %>
 
 <script type="text/javascript">
@@ -411,5 +459,4 @@
             }
         });
     });
-
 </script>
