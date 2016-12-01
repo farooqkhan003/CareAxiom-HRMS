@@ -187,7 +187,8 @@ module.exports = function(sequelize, DataTypes) {
        */
       getAllUsersInfoForDirectory: function () {
         return sequelize.query("SELECT first_name AS firstName, last_name AS lastName, email, designation, " +
-          "contact_no, address FROM User JOIN UserInfo ON UserInfo.user_id = User.id",
+          "contact_no, address FROM User JOIN UserInfo ON UserInfo.user_id = User.id " +
+          "WHERE is_archived=false",
           { type : sequelize.QueryTypes.SELECT });
       },
       /*
