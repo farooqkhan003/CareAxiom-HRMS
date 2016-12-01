@@ -1,4 +1,13 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 26/11/2016
+ */
 
+/*
+ * @author Khawaja Ahsen
+ * created on: 26/11/2016
+ * last modified: 28/11/2016
+ */
 exports.viewProfile = function (req, res, next) {
   var _user;
   return global.db.User.getUserByUserName(req.query.user)
@@ -31,8 +40,14 @@ exports.viewProfile = function (req, res, next) {
     }).catch(function (err) {
       console.log("Error", err);
     });
-};
+};/*  known bugs: null */
 
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 26/11/2016
+ * last modified: 28/11/2016
+ */
 exports.updateProfile = function (req, res, next) {
   var _user;
   return global.db.User.getUserByUserName(req.query.user)
@@ -74,4 +89,4 @@ exports.updateProfile = function (req, res, next) {
     }).catch(function (err) {
       console.log("Error", err);
     });
-};
+}; /*  known bugs: null */

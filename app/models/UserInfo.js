@@ -1,7 +1,18 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 28/11/2016
+ */
+
 "use strict";
 
 var Sequelize = require('sequelize');
 
+/*
+ * @author Khawaja Ahsen
+ * created on: 28/11/2016
+ * last modified: 28/11/2016
+ */
+/* define the schema and functionaries of UserInfo */
 module.exports = function(sequelize, DataTypes) {
   var UserInfo = sequelize.define('UserInfo', {
     user_id: {
@@ -80,11 +91,22 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     classMethods: {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 28/11/2016
+       * last modified: 28/11/2016
+       */
+
       getUserInfoByUserId: function(userId) {
         return global.db.UserInfo.findOne({
           where: { user_id : userId }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 28/11/2016
+       * last modified: 28/11/2016
+       */
       getAllUsersInfoByUserIds: function (userIds) {
         // Project and LIMIT - getAllSalary, getAllLeaves, viewOrganizationalStructure, viewDirectory
         return global.db.UserInfo.findAll({
@@ -93,6 +115,11 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 28/11/2016
+       * last modified: 28/11/2016
+       */
       updateUserInfoByUserId: function(userId, firstName, lastName, phone, address) {
         return global.db.UserInfo.update({
           first_name: firstName,
@@ -103,6 +130,11 @@ module.exports = function(sequelize, DataTypes) {
           where: { user_id : userId }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 28/11/2016
+       * last modified: 28/11/2016
+       */
       updateUserInfoByAdmin: function (userId, firstName, lastName, designation, phone, address, salary,
                                        currency, salaryBump, bonus, yearlyIncrement, availableLeaves) {
         return global.db.UserInfo.update({

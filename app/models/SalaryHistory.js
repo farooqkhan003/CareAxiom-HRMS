@@ -1,8 +1,18 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 29/11/2016
+ */
+
 "use strict";
 
 var Sequelize = require('sequelize');
 
 
+/*
+ * @author Khawaja Ahsen
+ * created on: 29/11/2016
+ * last modified: 29/11/2016
+ */
 module.exports = function(sequelize, DataTypes) {
   var SalaryHistory = sequelize.define('SalaryHistory', {
     user_id: {
@@ -63,6 +73,11 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     classMethods: {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       addSalary: function(userId, salary, currency, status, month, year, salaryBump, bonus) {
         return global.db.SalaryHistory.findOrCreate({
           where: {
@@ -79,11 +94,21 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       getSalaryHistoryByUserId: function(userId) {
         return global.db.SalaryHistory.findAll({
           where: { user_id : userId }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       getSalaryByUserIdMonthYear: function (userId, month, year) {
         return global.db.SalaryHistory.findOne({
           where: {
@@ -93,6 +118,13 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
+
       updateSalaryStatusByUserIdMonthYear: function(userId, status, month, year) {
         return global.db.SalaryHistory.update({
           status: status
@@ -108,4 +140,4 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   return SalaryHistory;
-};
+};   /* known bugs:null */

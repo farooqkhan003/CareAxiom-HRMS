@@ -1,7 +1,17 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 29/11/2016
+ */
+
 "use strict";
 
-var Sequelize = require('sequelize');
+var Sequelize = require('sequelize');/* import module */
 
+/*
+ * @author Khawaja Ahsen
+ * created on: 29/11/2016
+ * last modified: 29/11/2016
+ */
 module.exports = function(sequelize, DataTypes) {
   var UserModule = sequelize.define('UserModule', {
     user_id: {
@@ -25,12 +35,22 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     classMethods: {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       addUserToModule: function(userId, moduleId) {
         return global.db.UserModule.create({
           user_id: userId,
           module_id: moduleId
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       updateUserModule: function (userId, oldModuleId, newModuleId) {
         return global.db.UserModule.update({
           module_id: newModuleId
@@ -41,6 +61,11 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       deleteUserModule: function(userId, moduleId) {
         return global.db.UserModule.destroy({
           where: {
@@ -53,4 +78,4 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   return UserModule;
-};
+};   /* known bugs : null */

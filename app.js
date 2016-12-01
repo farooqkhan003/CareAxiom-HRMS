@@ -1,3 +1,9 @@
+/*
+ * @author Khawaja Ahsen
+ * created on: 24/11/2016
+
+ */
+
 var flash = require('connect-flash');
 var express = require('express');
 var passport = require('./config/passport');
