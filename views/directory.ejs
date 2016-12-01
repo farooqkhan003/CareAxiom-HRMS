@@ -3,6 +3,7 @@
 <!-- write you all code here -->
 <div id="main" class="text-center">
     <h2>Directory View</h2> <br>
+    <% if(employees) { %>
     <div class="table-responsive">
         <table class="table display table-bordered" id="table">
             <thead>
@@ -22,12 +23,12 @@
                 <td><%= employee.email %></td>
                 <td><%= employee.phone %></td>
                 <td><%= employee.address %></td>
-
             </tr>
             <% }) %>
             </tbody>
         </table>
     </div>
+    <% } %>
 </div>
 <br><br>
 

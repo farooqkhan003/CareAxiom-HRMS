@@ -20,9 +20,14 @@ exports.applyForLeave = function (req, res, next) {
 
   return global.db.LeaveHistory.applyForLeave(req.user.id, leaveType, reason, leaveDate)
     .then(function (leaveHistory) {
+
+      req.flash('applyLeaveMessage', 'Leave Applied');
       var redirectURL = '/profile/view?user=' + req.user.userName;
       return res.redirect(redirectURL);
     }).catch(function (err) {
-      console.log(err);
+
+      req.flash('applyLeaveMessage', 'Could not apply for leave');
+      var redirectURL = '/profile/view?user=' + req.user.userName;
+      return res.redirect(redirectURL);
     });
 };  /* Known bugs : null */

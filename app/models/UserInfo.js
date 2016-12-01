@@ -149,6 +149,11 @@ module.exports = function(sequelize, DataTypes) {
           where: { user_id : userId }
         });
       }
+    },
+    instanceMethods: {
+      getName: function () {
+        return this.getDataValue('first_name') + ' ' + this.getDataValue('last_name');
+      }
     }
   });
 

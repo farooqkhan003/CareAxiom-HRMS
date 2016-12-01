@@ -3,7 +3,19 @@
 <div id="main">
 
     <section>
-        <label class="alert btn-block"><%=message%></label>
+        <% if(addUserMessage && addUserMessage == 'User Added! :)') { %>
+        <label id="response-login" class="btn-block text-center alert alert-success"><%= addUserMessage %></label>
+        <% }
+        else if(addUserMessage && addUserMessage == 'Could not add user :(') { %>
+        <label id="response-login" class="btn-block text-center alert alert-danger"><%= addUserMessage %></label>
+        <% } %>
+        <% if(applyLeaveMessage && applyLeaveMessage == 'Leave Applied') { %>
+        <label id="response-login" class="btn-block text-center alert alert-success"><%= applyLeaveMessage %></label>
+        <% }
+        else if(applyLeaveMessage && applyLeaveMessage == 'Could not apply for leave') { %>
+        <label id="response-login" class="btn-block text-center alert alert-danger"><%= applyLeaveMessage %></label>
+        <% } %>
+
         <div class="container" style="margin-top: 30px;">
             <div class="profile-head">
                 <div class="col-md- col-sm-4 col-xs-12">
@@ -44,7 +56,12 @@
             <div class="tab-content">
                 <div class="tab-pane fade active in" id="profile">
                     <div class="container">
-
+                        <% if(editProfileMessage && editProfileMessage == 'Profile edited') { %>
+                        <label id="response-login" class="btn-block text-center alert alert-success"><%= editProfileMessage %></label>
+                        <% }
+                        else if(editProfileMessage && editProfileMessage == 'Could not edit profile') { %>
+                        <label id="response-login" class="btn-block text-center alert alert-danger"><%= editProfileMessage %></label>
+                        <% } %>
                         <br clear="all" />
                         <div class="row">
                             <div class="col-md-12">
@@ -138,7 +155,7 @@
                         <br />
                         <div class="row">
 
-                            <form class="form-horizontal main_form text-left" action="/profile/update?user=<%= userName %>" method="post" id="contact_form">
+                            <form class="form-horizontal main_form text-left" action="/profile/update?user=<%= user.userName %>" method="post" id="contact_form">
                                 <fieldset>
 
                                     <div class="form-group col-md-12">
@@ -190,7 +207,7 @@
                                     </div>
 
                                     <!-- only for admin -->
-                                    <% if(rank == 'admin') { %>
+                                    <% if(user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -204,10 +221,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
                                     <!-- Text input-->
-                                    <% if(rank == 'admin') { %>
+                                    <% if(user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Salary</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -216,10 +233,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
                                     <!-- only for admin -->
-                                    <% if(rank == 'admin') {%>
+                                    <% if(user.rank == 'admin') {%>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bump</label>
                                         <div class="col-md-12 selectContainere">
@@ -228,10 +245,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
                                     <!-- Select Basic -->
-                                    <% if(rank == 'admin') { %>
+                                    <% if(user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bonus</label>
                                         <div class="col-md-12 selectContainere">
@@ -240,7 +257,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%} %>
+                                    <% } %>
 
 
                                     <!-- upload profile picture -->
@@ -259,21 +276,21 @@
                                         </div> -->
                                     <!--uplod-picture close-->
                                     <!--</div>col-md-12 close-->
-                        <!-- Button -->
-                        <div class="form-group col-md-10">
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-success submit-button" >Save</button>
-                            </div>
-                        </div>
-                        </fieldset>
-                        </form>
-                    </div><!--row close-->
-                </div><!--container close -->
-            </div><!--tab-pane close-->
-        </div><!--tab-content close-->
-</div><!--container close-->
+                                    <!-- Button -->
+                                    <div class="form-group col-md-10">
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn btn-success submit-button" >Save</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div><!--row close-->
+                    </div><!--container close -->
+                </div><!--tab-pane close-->
+            </div><!--tab-content close-->
+        </div><!--container close-->
 
-</section><!--section close-->
+    </section><!--section close-->
 </div> <!-- end of main -->
 
 

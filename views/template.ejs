@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Template</title>
+    <title>Careaxiom HRMS</title>
 
     <!-- Bootstrap -->
     <link href="/DataTables/media/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/css/profile.css">
     <link rel="stylesheet" href="/css/modules.css">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
+    <link rel="stylesheet" href="/css/organizational_structure.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,15 +42,21 @@
             <a class="navbar-brand" href="#"><b><img src="/photos/Careaxiom.png"></b></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
+        <% if(user) { %>
         <div class="collapse navbar-collapse"
              id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <% if(user.rank == 'admin') { %>
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">New User</a></li>
                 <li><a href="#">Delete User</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#add-new-module">Add Module</a></li>
+                <% } %>
                 <li><a href="#" data-toggle="modal" data-target="#L-WFH-modal">Apply for Leave/WFH</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="/company/organizational_structure/view ">Orginicational Structure</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
+        <% } %>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -57,16 +64,18 @@
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/profile?user=abcde">
+    <% if(user) { %>
+    <a href="/profile/view?user=<%= user ? user.userName : 'null' %>">
         <button class="btn btn-block btn-info">Profile</button>
     </a>
-    <a href="">
+    <a href="/calendar/view">
         <button class="btn btn-block btn-success">Calender</button>
     </a>
-    <a href="#">
+    <a href="/employee/directory/view">
         <button class="btn btn-block btn-default">Employee</button>
     </a>
-    <a href="./">
+    <% } %>
+    <a href="/company/modules/view">
         <button class="btn btn-block btn-default btn-yellow">Company</button>
     </a>
 </div>
