@@ -52,7 +52,8 @@ exports.viewModules = function (req, res, next) {
  * @author Khawaja Ahsen
  * created on: 30/11/2016
  * last modified: 30/11/2016
- */
+ *  description: update module Controller
+  */
 
 exports.updateModule = function (req, res, next) {
   if(req.user.rank != 'admin') {

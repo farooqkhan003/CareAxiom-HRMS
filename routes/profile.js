@@ -1,8 +1,8 @@
 /*
  * @author Khawaja Ahsen
  * created on: 26/11/2016
- * known bugs: null
  * last modified: 28/11/2016
+ * description: all the page route related to profile are defined here
  */
 
 var express = require('express');

@@ -39,6 +39,7 @@ exports.addNewUserQuick = function (req, res, next) {
  * @author Khawaja Ahsen
  * created on: 26/11/2016
  * last modified: 26/11/2016
+ * description: add user controller
  */
 exports.deleteUser = function (req, res, next) {
     if (req.user.rank == 'admin') {

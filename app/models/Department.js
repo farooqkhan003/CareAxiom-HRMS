@@ -12,6 +12,7 @@ var Sequelize = require('sequelize');
  * @author Khawaja Ahsen
  * created on: 29/11/2016
  * last modified: 29/11/2016
+ * description: create the depatment table in db which keep the employee department info.
  */
 module.exports = function(sequelize, DataTypes) {
   var Department = sequelize.define('Department', {

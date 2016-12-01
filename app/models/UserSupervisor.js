@@ -11,6 +11,7 @@ var Sequelize = require('sequelize');                           /* import module
  * @author Khawaja Ahsen
  * created on: 30/11/2016
  * last modified: 30/11/2016
+ * description: create the table which keep record of team lead
  */
 module.exports = function(sequelize, DataTypes) {
   var UserSupervisor = sequelize.define('UserSupervisor', {     /* define the schema and functionaries of UserSupervisor Table */

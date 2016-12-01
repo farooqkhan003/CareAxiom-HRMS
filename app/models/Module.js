@@ -11,6 +11,7 @@ var Sequelize = require('sequelize');                 /* import module */
  * @author Khawaja Ahsen
  * created on: 30/11/2016
  * last modified: 30/11/2016
+ * description: create the Module table in db which keep the track of module
  */
 /* define the schema and functionaries of UserSupervisor Table */
 module.exports = function(sequelize, DataTypes) {

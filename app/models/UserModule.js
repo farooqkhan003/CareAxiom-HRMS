@@ -11,6 +11,7 @@ var Sequelize = require('sequelize');/* import module */
  * @author Khawaja Ahsen
  * created on: 29/11/2016
  * last modified: 29/11/2016
+ * description: craete the User Module in db which keep track of user module
  */
 module.exports = function(sequelize, DataTypes) {
   var UserModule = sequelize.define('UserModule', {

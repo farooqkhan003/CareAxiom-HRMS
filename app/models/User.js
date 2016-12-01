@@ -12,6 +12,7 @@ var bcrypt = require('bcrypt');         /* import module to secure the password 
 * @author Khawaja Ahsen
 * created on: 26/11/2016
 * last modified: 28/11/2016
+* description: create the User table in db which keep track of all the employ bio data
 */
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
