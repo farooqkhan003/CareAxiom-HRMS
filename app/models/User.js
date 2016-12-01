@@ -185,17 +185,9 @@ module.exports = function(sequelize, DataTypes) {
        * last modified: 26/11/2016
        */
       getAllUsersInfoForDirectory: function () {
-        return global.db.User.findAll({
-          where: { is_archived : false },
-          // attributes: [['first_name', 'firstName'], ['last_name', 'lastName'], 'designation', 'email', 'phone',
-          //   'address']
-          include: [{
-            model: global.db.UserInfo,
-            where: {
-              user_id: Sequelize.col('User.id')
-            }
-          }]
-        });
+        return sequelize.query("SELECT first_name AS firstName, last_name AS lastName, email, designation, " +
+          "contact_no, address FROM User JOIN UserInfo ON UserInfo.user_id = User.id",
+          { type : sequelize.QueryTypes.SELECT });
       },
       /*
        * @author Khawaja Ahsen
