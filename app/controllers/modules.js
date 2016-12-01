@@ -40,7 +40,6 @@ exports.updateModule = function (req, res, next) {
   if(req.user.rank != 'admin') {
     throw new Error('Unauthorized Access', 403);
   }
-  console.log(req.body);
   var moduleId = req.body.moduleId;
   var moduleName = req.body.moduleName;
   var description = req.body.description;
