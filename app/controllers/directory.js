@@ -2,43 +2,16 @@ var _ = require('underscore');
 
 /*
  * @author Khawaja Ahsen
- * created on 29/11/2016
- */
-
-
-/*
- * @author Khawaja Ahsen
  * created on: 30/11/2016
  * last modified: 30/11/2016
  * description: view the organizational directory .
  */
+
 exports.viewDirectory = function (req, res, next) {
-  var _users;
-  return global.db.User.getAllUsers()
-    .then(function (users) {
-      _users = users;
-      var userIds = [1, 2];
-      return global.db.UserInfo.getAllUsersInfoByUserIds(userIds);
-    }).then(function (usersInfo) {
-
-      var employeesObj = _.map(usersInfo, function (userInfo) {
-        return {
-          name: userInfo.getName(),
-          designation: userInfo.get('designation'),
-          email: null, // Retrieve user email from _users based on user_id
-          phone: userInfo.get('contact_no'),
-          address: userInfo.get('address')
-        };
-      });
-
-      return res.render('directory', { employees : employeesObj });
+  return global.db.User.getAllUsersInfoForDirectory()
+    .then(function (employees) {
+      return res.render('directory', { employees : employees });
     }).catch(function (err) {
-
+      console.log('ERRRRRRRRRRRRRRRR', err);
     });
-
-  // employee.name %></td>
-  // <td><%= employee.designation %></td>
-  // <td><%= employee.email %></td>
-  // <td><%= employee.phone %></td>
-  // <td><%= employee.address %></td>
 };

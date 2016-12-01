@@ -76,7 +76,8 @@ module.exports = function(sequelize, DataTypes) {
        */
       getAllModules: function () {
         return global.db.Module.findAll({
-          where: { is_archived : false }
+          where: { is_archived : false },
+          attributes: ['id', ['module_name', 'moduleName'], 'description']
         });
       },
       /*

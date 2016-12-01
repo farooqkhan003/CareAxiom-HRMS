@@ -114,7 +114,7 @@ module.exports = function(sequelize, DataTypes) {
        * last modified: 28/11/2016
        */
       addUserComplete: function (userName, email, password, rank, firstName, lastName, designation, phone, address,
-                                 salary, currency, status, month, year, salaryBump, bonus) {
+                                 salary, currency, salaryBump, bonus) {
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,
@@ -182,6 +182,16 @@ module.exports = function(sequelize, DataTypes) {
       },
       /*
        * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
+      getAllUsersInfoForDirectory: function () {
+        return sequelize.query("SELECT first_name AS firstName, last_name AS lastName, email, designation, " +
+          "contact_no, address FROM User JOIN UserInfo ON UserInfo.user_id = User.id",
+          { type : sequelize.QueryTypes.SELECT });
+      },
+      /*
+       * @author Khawaja Ahsen
        * created on: 28/11/2016
        * last modified: 28/11/2016
        */
@@ -210,12 +220,11 @@ module.exports = function(sequelize, DataTypes) {
        * last modified: 26/11/2016
        */
       deleteUserByUserName: function(userName) {
-        return global.db.User.destroy({
-          where: {
-            username: userName,
-            is_archived: false
-          },
-          individualHooks: true
+        return global.db.User.update({
+          is_archived: true,
+          deleted_at: Sequelize.timestamp
+        }, {
+          where: { username : userName }
         });
       },
       /*

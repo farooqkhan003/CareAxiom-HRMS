@@ -15,7 +15,7 @@
                         <p id="description<%= module.id %>">
                             <%= module.description %>
                         </p>
-                        <% if(user.rank == 'admin') { %>
+                        <% if(user && user.rank == 'admin') { %>
                         <div class="more">
                             <button id="<%= module.id %>" class="btn btn-info" title="edit"
                                     onclick="editModule(this.id)">
@@ -41,9 +41,9 @@
                     <label class="alert alert-danger btn-block text-center"></label>
                     <input type="text" value="" id="moduleID" name="moduleId" hidden>
                     <label>Title</label>
-                    <input class="form-control" type="text" name="moduleName" id="title">
+                    <input class="form-control" required="required" type="text" name="moduleName" id="title">
                     <label>Description</label>
-                    <textarea class="form-control" id="description" name="description"></textarea>
+                    <textarea class="form-control" required="required" id="description" name="description"></textarea>
                     <input type="submit" value="Update" class="form-control btn-success">
                 </form>
             </div>
