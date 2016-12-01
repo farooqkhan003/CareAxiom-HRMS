@@ -1,8 +1,18 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 26/11/2016
+ */
+
 "use strict";
 
-var Sequelize = require('sequelize');
-var bcrypt = require('bcrypt');
+var Sequelize = require('sequelize');   /* import module for models */
+var bcrypt = require('bcrypt');         /* import module to secure the password */
 
+/*
+* @author Khawaja Ahsen
+* created on: 26/11/2016
+* last modified: 28/11/2016
+*/
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     username: {
@@ -69,6 +79,11 @@ module.exports = function(sequelize, DataTypes) {
       // }
     },
     classMethods: {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 28/11/2016
+       */
       addUserQuick: function (userName, email, password, rank, firstName, lastName, designation, phone, salary) {
         return sequelize.transaction(function (t) {
           return global.db.User.create({
@@ -92,6 +107,11 @@ module.exports = function(sequelize, DataTypes) {
           });
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 28/11/2016
+       */
       addUserComplete: function (userName, email, password, rank, firstName, lastName, designation, phone, address,
                                  salary, currency, status, month, year, salaryBump, bonus) {
         return sequelize.transaction(function (t) {
@@ -123,6 +143,11 @@ module.exports = function(sequelize, DataTypes) {
           });
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
       getUserById: function (userId) {
         return global.db.User.findOne({
           where: {
@@ -131,6 +156,11 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
       getUserByUserName: function (userName) {
         return global.db.User.findOne({
           where: {
@@ -139,11 +169,21 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
       getAllUsers: function () {
         return global.db.User.findAll({
           where: { is_archived : false }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 28/11/2016
+       * last modified: 28/11/2016
+       */
       updatePasswordByUserName: function (userName, oldPassword, newPassword) {
         return global.db.User.findOne({
           where: {
@@ -162,6 +202,12 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
       deleteUserByUserName: function(userName) {
         return global.db.User.destroy({
           where: {
@@ -171,6 +217,11 @@ module.exports = function(sequelize, DataTypes) {
           individualHooks: true
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
       reviveUserByUserName: function (userName) {
         return global.db.User.update({
           is_archived: false,
@@ -180,6 +231,11 @@ module.exports = function(sequelize, DataTypes) {
         });
       }
     },
+    /*
+     * @author Khawaja Ahsen
+     * created on: 26/11/2016
+     * last modified: 26/11/2016
+     */
     instanceMethods: {
       validPassword: function(password, userPasswordHash) {
         return bcrypt.compareSync(password, userPasswordHash);
@@ -188,4 +244,4 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   return User;
-};
+};  / * known bugs: null */

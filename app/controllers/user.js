@@ -1,4 +1,14 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 26/11/2016
+ */
 
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 26/11/2016
+ * last modified: 26/11/2016
+ */
 exports.addNewUserQuick = function (req, res, next) {
   if(req.user.rank == 'admin') {
     var userName = req.body.userName;
@@ -28,4 +38,4 @@ exports.addNewUserQuick = function (req, res, next) {
   else {
     throw new Error('Unauthorized Access', 403);
   }
-};
+};/*  known bugs: null */

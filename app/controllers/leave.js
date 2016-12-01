@@ -1,4 +1,16 @@
 
+/*
+ * @author Khawaja Ahsen
+ * created on 29/11/2016
+
+ */
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 29/11/2016
+ * last modified: 29/11/2016
+ */
+
 exports.applyForLeave = function (req, res, next) {
   var leaveType = req.body.leaveType;
   var leaveDate = req.body.leaveDate;
@@ -18,4 +30,4 @@ exports.applyForLeave = function (req, res, next) {
       var redirectURL = '/profile/view?user=' + req.user.userName;
       return res.redirect(redirectURL);
     });
-};
+};  /* Known bugs : null */

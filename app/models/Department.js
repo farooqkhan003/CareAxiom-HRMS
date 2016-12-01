@@ -1,7 +1,18 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 29/11/2016
+ */
+
 "use strict";
 
 var Sequelize = require('sequelize');
 
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 29/11/2016
+ * last modified: 29/11/2016
+ */
 module.exports = function(sequelize, DataTypes) {
   var Department = sequelize.define('Department', {
     department_name: {
@@ -31,12 +42,23 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     classMethods: {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
+
       addDepartment: function(departmentName, description) {
         return global.db.Department.create({
           department_name: departmentName,
           description: description
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       getDepartmentByName: function (departmentName) {
         return global.db.Department.findOne({
           where: {
@@ -45,11 +67,21 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       getAllDepartments: function () {
         return global.db.Department.findAll({
           where: { is_archived : false }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       updateDepartmentByName: function (oldDepartmentName, newDepartmentName, description) {
         return global.db.Department.update({
           department_name: newDepartmentName,
@@ -61,6 +93,11 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 29/11/2016
+       * last modified: 29/11/2016
+       */
       deleteDepartmentByName: function (departmentName) {
         return global.db.Department.destroy({
           where: {
@@ -74,4 +111,4 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   return Department;
-};
+};    /*   known bugs: null */

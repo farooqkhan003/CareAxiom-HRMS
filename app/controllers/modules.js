@@ -1,4 +1,17 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 30/11/2016
+ */
+
 var _ = require('underscore');
+
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 30/11/2016
+
+ * last modified: 30/11/2016
+ */
 
 exports.addModule = function (req, res, next) {
 
@@ -16,8 +29,14 @@ exports.addModule = function (req, res, next) {
     }).catch(function (err) {
 
   });
-};
+};  /*  known bugs: null */
 
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 30/11/2016
+ * last modified: 30/11/2016
+ */
 exports.viewModules = function (req, res, next) {
   return global.db.Module.getAllModules()
     .then(function (modules) {
@@ -34,7 +53,13 @@ exports.viewModules = function (req, res, next) {
     }).catch(function (err) {
 
     });
-};
+}; /*  known bugs: null */
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 30/11/2016
+ * last modified: 30/11/2016
+ */
 
 exports.updateModule = function (req, res, next) {
   if(req.user.rank != 'admin') {
@@ -50,4 +75,4 @@ exports.updateModule = function (req, res, next) {
     }).catch(function (err) {
 
   });
-};
+};  /*  known bugs: null */

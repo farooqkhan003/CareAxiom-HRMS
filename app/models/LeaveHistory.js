@@ -1,5 +1,17 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 29/11/2016
+  */
+
 var Sequelize = require('sequelize');
 
+
+
+/*
+ * @author Khawaja Ahsen
+ * created on: 30/11/2016
+ * last modified: 30/11/201
+ */
 module.exports = function(sequelize, DataTypes) {
   var LeaveHistory = sequelize.define('LeaveHistory', {
     user_id: {
@@ -62,6 +74,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     classMethods: {
+
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/201
+       */
       applyForLeave: function(userId, leaveType, reason, leaveDate) {
         return global.db.LeaveHistory.findOrCreate({
           where: {
@@ -74,6 +92,12 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/201
+       */
       respondToLeave: function(userId, applyFor, status) {
         return global.db.LeaveHistory.update({
           status: status,
@@ -85,11 +109,23 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/201
+       */
       getLeaveHistoryByUserId: function(userId) {
         return global.db.LeaveHistory.findAll({
           where: { user_id : userId }
         });
       },
+
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/201
+       */
       getLeaveByUserIdApplyFor: function (userId, applyFor) {
         return global.db.LeaveHistory.findOne({
           where: {
@@ -104,3 +140,4 @@ module.exports = function(sequelize, DataTypes) {
 
   return LeaveHistory;
 };
+  /* known bugs null */

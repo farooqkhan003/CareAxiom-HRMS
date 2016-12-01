@@ -1,9 +1,19 @@
+/*
+ * @author Khawaja Ahsen
+ * created on 30/11/2016
+ */
+
 "use strict";
 
-var Sequelize = require('sequelize');
+var Sequelize = require('sequelize');                           /* import module */
 
+/*
+ * @author Khawaja Ahsen
+ * created on: 30/11/2016
+ * last modified: 30/11/2016
+ */
 module.exports = function(sequelize, DataTypes) {
-  var UserSupervisor = sequelize.define('UserSupervisor', {
+  var UserSupervisor = sequelize.define('UserSupervisor', {     /* define the schema and functionaries of UserSupervisor Table */
     user_id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -25,13 +35,24 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     classMethods: {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/2016
+       */
+
       addUserSupervisor: function (userId, supervisorId) {
-        return global.db.UserSupervisor.create({
+        return global.db.UserSupervisor.create({                  /* Create a table in database */
           user_id: userId,
           supervisor_id: supervisorId
         });
       },
-      updateUserSupervisor: function (userId, oldSupervisorId, newSupervisorId) {
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/2016
+       */
+      updateUserSupervisor: function (userId, oldSupervisorId, newSupervisorId) {   /* update table */
         return global.db.UserSupervisor.update({
           supervisor_id: newSupervisorId
         }, {
@@ -41,6 +62,11 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       },
+      /*
+       * @author Khawaja Ahsen
+       * created on: 30/11/2016
+       * last modified: 30/11/2016
+       */
       deleteUserSupervisor: function (userId, supervisorId) {
         return global.db.UserSupervisor.destroy({
           where: {
@@ -53,4 +79,4 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   return UserSupervisor;
-};
+};  /*known bug : null */
