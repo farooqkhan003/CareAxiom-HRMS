@@ -35,7 +35,6 @@ exports.viewProfile = function (req, res, next) {
         bonus: userInfo.get('bonus'),
         availableLeaves: userInfo.get('available_leaves'),
 
-        addUserMessage: req.flash('addUserMessage'),
         applyLeaveMessage: req.flash('applyLeaveMessage'),
         editProfileMessage: req.flash('editProfileMessage'),
 

@@ -26,12 +26,10 @@ exports.addNewUserQuick = function (req, res, next) {
             .then(function (userInfo) {
                 return global.db.User.getUserById(userInfo.get('id'));
             }).then(function (user) {
-                req.flash('addUserMessage', 'User Added! :)');
                 res.send('1');
                 //var redirectURL = '/profile/view?user=' + req.user.userName;
                 //return res.redirect(redirectURL);
             }).catch(function (err) {
-                req.flash('addUserMessage', 'Could not add user :(');
                 res.send(err.message);
                 // var redirectURL = '/profile/view?user=' + req.user.userName;
                 // return res.redirect(redirectURL);
