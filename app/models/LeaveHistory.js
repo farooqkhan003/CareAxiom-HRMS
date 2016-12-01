@@ -10,7 +10,8 @@ var Sequelize = require('sequelize');
 /*
  * @author Khawaja Ahsen
  * created on: 30/11/2016
- * last modified: 30/11/201
+ * last modified: 30/11/2016
+ * description: create the Leave history table in db which keep track of employee salary
  */
 module.exports = function(sequelize, DataTypes) {
   var LeaveHistory = sequelize.define('LeaveHistory', {

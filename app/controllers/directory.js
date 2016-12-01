@@ -6,7 +6,12 @@ var _ = require('underscore');
  */
 
 
-
+/*
+ * @author Khawaja Ahsen
+ * created on: 30/11/2016
+ * last modified: 30/11/2016
+ * description: view the organizational directory .
+ */
 exports.viewDirectory = function (req, res, next) {
   var _users;
   return global.db.User.getAllUsers()

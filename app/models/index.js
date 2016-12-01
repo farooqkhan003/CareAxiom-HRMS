@@ -1,7 +1,6 @@
 /*
  * @author Khawaja Ahsen
  * created on 24/11/2016
- * known bugs null
  */
 
 "use strict";

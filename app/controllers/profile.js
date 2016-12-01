@@ -7,6 +7,7 @@
  * @author Khawaja Ahsen
  * created on: 26/11/2016
  * last modified: 28/11/2016
+ * description: user profile controller
  */
 exports.viewProfile = function (req, res, next) {
   var _user;
@@ -49,6 +50,7 @@ exports.viewProfile = function (req, res, next) {
  * @author Khawaja Ahsen
  * created on: 26/11/2016
  * last modified: 28/11/2016
+ * description: update profile controller
  */
 exports.updateProfile = function (req, res, next) {
   var _user;

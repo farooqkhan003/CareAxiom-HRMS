@@ -12,6 +12,7 @@ var Sequelize = require('sequelize');
  * @author Khawaja Ahsen
  * created on: 29/11/2016
  * last modified: 29/11/2016
+ * description: crate the SalaryHistory Table in db which keep track of Salary of Employee
  */
 module.exports = function(sequelize, DataTypes) {
   var SalaryHistory = sequelize.define('SalaryHistory', {
