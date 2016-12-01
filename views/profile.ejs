@@ -208,7 +208,7 @@
                                     </div>
 
                                     <!-- only for admin -->
-                                    <% if(user.rank == 'admin') { %>
+                                    <% if(user && user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Designation</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -225,7 +225,7 @@
                                     <% } %>
 
                                     <!-- Text input-->
-                                    <% if(user.rank == 'admin') { %>
+                                    <% if(user && user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Salary</label>
                                         <div class="col-md-12 inputGroupContainer">
@@ -238,7 +238,7 @@
                                     <% } %>
 
                                     <!-- only for admin -->
-                                    <% if(user.rank == 'admin') { %>
+                                    <% if(user && user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bump</label>
                                         <div class="col-md-12 selectContainere">
@@ -251,7 +251,7 @@
                                     <% } %>
 
                                     <!-- Select Basic -->
-                                    <% if(user.rank == 'admin') { %>
+                                    <% if(user && user.rank == 'admin') { %>
                                     <div class="form-group col-md-12">
                                         <label class="col-md-10 control-label">Upcomming Bonus</label>
                                         <div class="col-md-12 selectContainere">
@@ -340,7 +340,7 @@
 
 <!-- End of Apply for leave/WFH -->
 
-<% if (user.rank == 'admin'){ %>
+<% if (user && user.rank == 'admin'){ %>
 <!-- Delete user for admin -->
 
 <div class="modal fade" id="delete-user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
@@ -367,7 +367,7 @@
                             <button>Delete</button>
                         </td>
                     </tr>
-                    <% }); %>
+                    <!--<% }); %>-->
                     </tbody>
                 </table>
             </div>

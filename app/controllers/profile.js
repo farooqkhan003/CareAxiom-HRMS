@@ -37,7 +37,9 @@ exports.viewProfile = function (req, res, next) {
 
         addUserMessage: req.flash('addUserMessage'),
         applyLeaveMessage: req.flash('applyLeaveMessage'),
-        editProfileMessage: req.flash('editProfileMessage')
+        editProfileMessage: req.flash('editProfileMessage'),
+
+        deleteUsers: []
       });
     }).catch(function (err) {
       console.log("Error", err);
