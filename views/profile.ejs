@@ -348,38 +348,11 @@
     <div class="modal-dialog">
         <div class="loginmodal-container extra-large">
             <h1>Delete User</h1><br>
-            <h2>Employee Salary</h2> <br>
-            <div class="table-responsive">
-                <table class="table display table-bordered" id="table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% deleteUsers.forEach(function(deleteUser)  { %>
-                    <tr>
-                        <td><%= deleteUser.name%></td>
-                        <td><%= deleteUser.username %></td>
-                        <td>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
-                    <!--<% }); %>-->
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <div id="edit" class="collapse">
-                <div class="row text-left">
-                    <div class=" col-md-offset-4 col-md-4">
-                        <input type="text" id="delte-user-id" hidden value="">
-                    </div>
-                </div>
-
-            </div>
+            <form action="" method="">
+                <label for="">Username</label>
+                <input class="form-control" placeholder="Username" name="username" id="">
+                <input type="submit" class="form-control btn btn-danger">
+            </form>
             <br><br>
             <br>
         </div>
@@ -440,6 +413,7 @@
                 salary: $('#salary').val()
             },
             success: function (data) {
+                console.log(data);
                 $('#adduser-button').removeClass('disabled');
                 $('#spinner1').addClass('hidden');
                 if (data == 1) {
