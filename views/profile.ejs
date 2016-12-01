@@ -3,7 +3,19 @@
 <div id="main">
 
     <section>
-        <label class="alert btn-block"><%=message%></label>
+        <% if(addUserMessage && addUserMessage == 'User Added! :)') { %>
+        <label id="response-login" class="btn-block text-center alert alert-success"><%= addUserMessage %></label>
+        <% }
+        else if(addUserMessage && addUserMessage == 'Could not add user :(') { %>
+        <label id="response-login" class="btn-block text-center alert alert-danger"><%= addUserMessage %></label>
+        <% } %>
+        <% if(applyLeaveMessage && applyLeaveMessage == 'Leave Applied') { %>
+        <label id="response-login" class="btn-block text-center alert alert-success"><%= applyLeaveMessage %></label>
+        <% }
+        else if(applyLeaveMessage && applyLeaveMessage == 'Could not apply for leave') { %>
+        <label id="response-login" class="btn-block text-center alert alert-danger"><%= applyLeaveMessage %></label>
+        <% } %>
+
         <div class="container" style="margin-top: 30px;">
             <div class="profile-head">
                 <div class="col-md- col-sm-4 col-xs-12">
@@ -44,7 +56,12 @@
             <div class="tab-content">
                 <div class="tab-pane fade active in" id="profile">
                     <div class="container">
-
+                        <% if(editProfileMessage && editProfileMessage == 'Profile edited') { %>
+                        <label id="response-login" class="btn-block text-center alert alert-success"><%= editProfileMessage %></label>
+                        <% }
+                        else if(editProfileMessage && editProfileMessage == 'Could not edit profile') { %>
+                        <label id="response-login" class="btn-block text-center alert alert-danger"><%= editProfileMessage %></label>
+                        <% } %>
                         <br clear="all" />
                         <div class="row">
                             <div class="col-md-12">

@@ -26,7 +26,9 @@ exports.viewProfile = function (req, res, next) {
         bonus: userInfo.get('bonus'),
         availableLeaves: userInfo.get('available_leaves'),
 
-        message: req.flash('message')
+        addUserMessage: req.flash('addUserMessage'),
+        applyLeaveMessage: req.flash('applyLeaveMessage'),
+        editProfileMessage: req.flash('editProfileMessage')
       });
     }).catch(function (err) {
       console.log("Error", err);
@@ -69,9 +71,15 @@ exports.updateProfile = function (req, res, next) {
       }
     }).then(function (affectedCount, updatedUserInfo) {
       // var userInfo = Sequelize.Utils._.first(updatedUserInfo);
+
+      req.flash('editProfileMessage', 'Profile edited');
       var redirectURL = '/profile/view?user=' + _user.get('username');
       return res.redirect(redirectURL);
     }).catch(function (err) {
       console.log("Error", err);
+
+      req.flash('editProfileMessage', 'Could not edit profile');
+      var redirectURL = '/profile/view?user=' + _user.get('username');
+      return res.redirect(redirectURL);
     });
 };
