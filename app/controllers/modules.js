@@ -41,15 +41,8 @@ exports.viewModules = function (req, res, next) {
   return global.db.Module.getAllModules()
     .then(function (modules) {
 
-      var modulesObj = _.map(modules, function (module) {
-        return {
-          id: module.get('id'),
-          moduleName: module.get('module_name'),
-          description: module.get('description')
-        };
-      });
-
-      return res.render('modules', { modules : modulesObj });
+      modules = _.pluck(modules, 'dataValues');
+      return res.render('modules', { modules : modules });
     }).catch(function (err) {
 
     });

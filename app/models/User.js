@@ -181,6 +181,24 @@ module.exports = function(sequelize, DataTypes) {
       },
       /*
        * @author Khawaja Ahsen
+       * created on: 26/11/2016
+       * last modified: 26/11/2016
+       */
+      getAllUsersInfoForDirectory: function () {
+        return global.db.User.findAll({
+          where: { is_archived : false },
+          // attributes: [['first_name', 'firstName'], ['last_name', 'lastName'], 'designation', 'email', 'phone',
+          //   'address']
+          include: [{
+            model: global.db.UserInfo,
+            where: {
+              user_id: Sequelize.col('User.id')
+            }
+          }]
+        });
+      },
+      /*
+       * @author Khawaja Ahsen
        * created on: 28/11/2016
        * last modified: 28/11/2016
        */
