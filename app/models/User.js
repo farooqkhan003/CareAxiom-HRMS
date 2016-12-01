@@ -219,12 +219,11 @@ module.exports = function(sequelize, DataTypes) {
        * last modified: 26/11/2016
        */
       deleteUserByUserName: function(userName) {
-        return global.db.User.destroy({
-          where: {
-            username: userName,
-            is_archived: false
-          },
-          individualHooks: true
+        return global.db.User.update({
+          is_archived: true,
+          deleted_at: Sequelize.timestamp
+        }, {
+          where: { username : userName }
         });
       },
       /*
