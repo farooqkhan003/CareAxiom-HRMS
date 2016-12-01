@@ -220,9 +220,9 @@ module.exports = function(sequelize, DataTypes) {
        * last modified: 26/11/2016
        */
       deleteUserByUserName: function(userName) {
+        // Somehow set deleted_at value in this function
         return global.db.User.update({
-          is_archived: true,
-          deleted_at: Sequelize.timestamp
+          is_archived: 1
         }, {
           where: { username : userName }
         });
@@ -234,8 +234,7 @@ module.exports = function(sequelize, DataTypes) {
        */
       reviveUserByUserName: function (userName) {
         return global.db.User.update({
-          is_archived: false,
-          deleted_at: null
+          is_archived: false
         }, {
           where: { username : userName }
         });

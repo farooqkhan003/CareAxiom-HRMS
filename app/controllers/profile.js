@@ -36,10 +36,9 @@ exports.viewProfile = function (req, res, next) {
         bonus: userInfo.get('bonus'),
         availableLeaves: userInfo.get('available_leaves'),
 
+        deletedUserMessage: req.flash('deletedUserMessage'),
         applyLeaveMessage: req.flash('applyLeaveMessage'),
-        editProfileMessage: req.flash('editProfileMessage'),
-
-        deleteUsers: []
+        editProfileMessage: req.flash('editProfileMessage')
       });
     }).catch(function (err) {
       console.log("Error", err);

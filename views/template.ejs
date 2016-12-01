@@ -42,7 +42,6 @@
             <a class="navbar-brand" href="#"><b><img src="/photos/Careaxiom.png"></b></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <% if(user) { %>
         <div class="collapse navbar-collapse"
              id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -51,12 +50,15 @@
                 <li><a href="#" data-toggle="modal" data-target="#delete-user">Delete User</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#add-new-module">Add Module</a></li>
                 <% } %>
+                <% if(user) { %>
                 <li><a href="#" data-toggle="modal" data-target="#L-WFH-modal">Apply for Leave/WFH</a></li>
+                <% } %>
                 <li><a href="/company/organizational_structure/view ">Organizational Structure</a></li>
+                <% if(user) { %>
                 <li><a href="/logout">Logout</a></li>
+                <% } %>
             </ul>
         </div>
-        <% } %>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->

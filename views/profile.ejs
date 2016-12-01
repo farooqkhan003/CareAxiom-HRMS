@@ -3,6 +3,12 @@
 <div id="main">
 
     <section>
+        <% if(deletedUserMessage && deletedUserMessage == 'User Deleted') { %>
+        <label id="response-login" class="btn-block text-center alert alert-success"><%= deletedUserMessage %></label>
+        <% }
+        else if(deletedUserMessage && deletedUserMessage == 'Unable to delete user') { %>
+        <label id="response-login" class="btn-block text-center alert alert-danger"><%= deletedUserMessage %></label>
+        <% } %>
         <% if(applyLeaveMessage && applyLeaveMessage == 'Leave Applied') { %>
         <label id="response-login" class="btn-block text-center alert alert-success"><%= applyLeaveMessage %></label>
         <% }
@@ -350,7 +356,7 @@
             <h1>Delete User</h1><br>
             <form action="/employee/delete" method="post" id="delete_user_form">
                 <label for="">Username</label>
-                <input class="form-control" placeholder="Username" name="username" id="" required="required">
+                <input class="form-control" placeholder="Username" name="userName" id="" required="required">
                 <input type="submit" class="form-control btn btn-danger">
             </form>
             <br><br>
