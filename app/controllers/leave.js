@@ -9,6 +9,7 @@
  * @author Khawaja Ahsen
  * created on: 29/11/2016
  * last modified: 29/11/2016
+ * description:  apply for leave controller
  */
 
 exports.applyForLeave = function (req, res, next) {

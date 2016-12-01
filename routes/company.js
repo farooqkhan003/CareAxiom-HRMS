@@ -1,8 +1,8 @@
 /*
  * @author Khawaja Ahsen
  * created on: 30/11/2016
- * known bugs: null
  * last modified: 30/11/2016
+ * description: all the page route related to module and organization defined here
  */
 var express = require('express');
 var router = express.Router();

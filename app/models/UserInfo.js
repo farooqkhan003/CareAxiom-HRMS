@@ -1,6 +1,6 @@
 /*
  * @author Khawaja Ahsen
- * created on 28/11/2016
+ * created on 26/11/2016
  */
 
 "use strict";
@@ -9,8 +9,9 @@ var Sequelize = require('sequelize');
 
 /*
  * @author Khawaja Ahsen
- * created on: 28/11/2016
+ * created on: 26/11/2016
  * last modified: 28/11/2016
+ * description: create the UserInfo table in db which keep track of user data
  */
 /* define the schema and functionaries of UserInfo */
 module.exports = function(sequelize, DataTypes) {
