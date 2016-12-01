@@ -1,47 +1,48 @@
 <!-- Add New User modal -->
 
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
-    <div class="loginmodal-container">
-      <h1>Add New Employee</h1><br>
-      <form action="/employee/new" method="post" id="new_user_form">
-        <div class="col-md-6">
-          <label>First Name</label>
-          <input type="text" class="form-control" id="" name="firstName" placeholder="First Name">
-        </div>
-        <div class="col-md-6">
-          <label>Last Name</label>
-          <input type="text" class="form-control" id="" name="lastName" placeholder="Last Name">
-        </div>
-        <label>Username</label>
-        <input type="text" class="form-control" id="" name="userName" placeholder="Username">
-        <label>Password</label>
-        <input name="password" placeholder="Choose Password" class="form-control" type="password">
-        <label>Email</label>
-        <input type="email" class="form-control" id="" name="email" placeholder="Email">
-        <label>Phone #</label>
-        <input type="number" class="form-control" id="" name="phone" placeholder="Phone #">
-        <label>Designation</label>
-        <select class="form-control" id="" name="designation">
-          <option>Software Developer</option>
-          <option>Senior Software Developer</option>
-          <option>Quality Assurance Engineer</option>
-          <option>Human Resource Manager</option>
-        </select>
-        <label>Rank</label>
-        <select class="form-control" id="" name="rank">
-          <option>admin</option>
-          <option>engineering owner</option>
-          <option>engineer</option>
-        </select>
-        <label>Salary</label>
-        <input type="text" class="form-control" id="" name="salary" placeholder="Salary">
-        <br>
-        <button type="submit" class="btn btn-block btn-success" >Add User</button>
-      </form> <!-- end of form -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Add New Employee</h1><br>
+            <form action="/employee/new" method="post" id="new_user_form">
+                <div class="col-md-6">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" id="" name="firstName" placeholder="First Name">
+                </div>
+                <div class="col-md-6">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="" name="lastName" placeholder="Last Name">
+                </div>
+                <label>Username</label>
+                <input type="text" class="form-control" id="" name="userName" placeholder="Username">
+                <label>Password</label>
+                <input name="password" placeholder="Choose Password" class="form-control" type="password">
+                <label>Email</label>
+                <input type="email" class="form-control" id="" name="email" placeholder="Email">
+                <label>Phone #</label>
+                <input type="number" class="form-control" id="" name="phone" placeholder="Phone #">
+                <label>Designation</label>
+                <select class="form-control" id="" name="designation">
+                    <option>Software Developer</option>
+                    <option>Senior Software Developer</option>
+                    <option>Quality Assurance Engineer</option>
+                    <option>Human Resource Manager</option>
+                </select>
+                <label>Rank</label>
+                <select class="form-control" id="" name="rank">
+                    <option>admin</option>
+                    <option>engineering owner</option>
+                    <option>engineer</option>
+                </select>
+                <label>Salary</label>
+                <input type="text" class="form-control" id="" name="salary" placeholder="Salary">
+                <br>
+                <button type="submit" class="btn btn-block btn-success">Add User</button>
+            </form> <!-- end of form -->
 
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- End of add new user modal -->
@@ -55,8 +56,8 @@
 <script type="text/javascript" src="/DataTables/media/js/jquery.dataTables.min.js"></script>
 </body>
 <script type="text/javascript">
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
 </script>
 
 </html>
