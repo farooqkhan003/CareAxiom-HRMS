@@ -113,7 +113,7 @@ module.exports = function(sequelize, DataTypes) {
        * last modified: 28/11/2016
        */
       addUserComplete: function (userName, email, password, rank, firstName, lastName, designation, phone, address,
-                                 salary, currency, status, month, year, salaryBump, bonus) {
+                                 salary, currency, salaryBump, bonus) {
         return sequelize.transaction(function (t) {
           return global.db.User.create({
             username: userName,
