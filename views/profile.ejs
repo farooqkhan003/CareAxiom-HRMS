@@ -3,12 +3,6 @@
 <div id="main">
 
     <section>
-        <% if(addUserMessage && addUserMessage == 'User Added! :)') { %>
-        <label id="response-login" class="btn-block text-center alert alert-success"><%= addUserMessage %></label>
-        <% }
-        else if(addUserMessage && addUserMessage == 'Could not add user :(') { %>
-        <label id="response-login" class="btn-block text-center alert alert-danger"><%= addUserMessage %></label>
-        <% } %>
         <% if(applyLeaveMessage && applyLeaveMessage == 'Leave Applied') { %>
         <label id="response-login" class="btn-block text-center alert alert-success"><%= applyLeaveMessage %></label>
         <% }
@@ -424,17 +418,45 @@
         console.log('alu\n');
         console.log($('#calendar').val());
     });
-
 </script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var table = $('#table').DataTable();
 
-        $('#table tbody').on('click', 'button', function () {
-            var data = table.row($(this).parents('tr')).data();
-            $('#edit').addClass('in');
+<!--script for ajax of add user-->
+<script>
+    $('#adduser-button').click(function () {
+        $('#spinner1').removeClass('hidden');
+        $('#adduser-button').addClass('disabled');
+        $.ajax({
+            type: 'POST',
+            url: '/employee/new',
+            data: {
+                firstName: $('#firstName').val(),
+                lastName: $('#lastName').val(),
+                userName: $('#username').val(),
+                password: $('#password').val(),
+                email: $('#email').val(),
+                phone: $('#phone').val(),
+                designation: $('#designation').val(),
+                rank: $('#rank').val(),
+                salary: $('#salary').val()
+            },
+            success: function (data) {
+                $('#adduser-button').removeClass('disabled');
+                $('#spinner1').addClass('hidden');
+                if (data == 1) {
+                    $('#adduser-button').removeClass();
+                    $('#adduser-label').addClass('alert alert-success btn-block text-center');
+                    $('#adduser-label').html("User Added!!");
 
-            $('#delte-user-id').val(data[1]);
+                } else {
+                    $('#aadduser-button').removeClass('disabled');
+                    $('#adduser-label').addClass('alert alert-danger btn-block text-center');
+                    $('#adduser-label').html('User not Added.');
+                }
+            },
+            error: function () {
+                $('#spinner1').addClass('hidden');
+                alert("Error in sending ajax request.");
+            }
         });
     });
 </script>
