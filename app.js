@@ -50,7 +50,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-
 app.use('/', index);
 app.use('/profile', authentication.isAuthenticated, profile);
 app.use('/calendar', authentication.isAuthenticated, calendar);
