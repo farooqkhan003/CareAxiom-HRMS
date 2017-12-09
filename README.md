@@ -27,3 +27,17 @@ Kindly follow the mentioned (rough and incomplete) steps **IN ORDER** to setup p
   git commit -m "Reason for commit or change"
   git push origin branch-name
   ```
+
+
+### TODO:
+```
+- User.classLevelMethod = function() {}
+- User.prototype.instanceLevelMethod = function() {}
+- app.locals.rootDirectory = __dirname; in app.js
+console.log(req.app.locals.rootDirectory);
+
+-* Model.update instead of Model.destroy
+-* catch blocks in controllers
+- Can make a separate authorization file
+- Flash messages in module page
+```
